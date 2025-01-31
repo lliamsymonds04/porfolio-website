@@ -2,11 +2,20 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main # Trigger the workflow on pushes to the main branch
+    branches: ['main'] # Trigger the workflow on pushes to the main branch
+  
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
     steps:
