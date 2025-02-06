@@ -59,7 +59,7 @@ function CardStacker() {
 
     return (
         <div ref={scrollFrameRef} className="relative w-screen justify-center items-center flex flex-col gap-24">
-            {test_arr.map((v, index) => (
+            {test_arr.map((_, index) => (
                 <Card key={index} scrollY={scrollY} frameHeight={frameHeight} arrayLength={test_arr.length} background={background} index={index}/>
             ))}
         </div>
