@@ -1,7 +1,7 @@
-function LinkButton({imgSrc, link}: {imgSrc: string, link: string}) {
+function LinkButton({imgSrc, link, size = 10}: {imgSrc: string, link: string, size?: number}) {
     return (
         <a href={link} target="_blank" rel="noreferrer">
-            <img src={imgSrc} className="h-10 w-10" /> 
+            <img src={imgSrc} style={{height: `${size/4}rem`, width: `${size/4}rem`}} /> 
         </a>
     )
 }
