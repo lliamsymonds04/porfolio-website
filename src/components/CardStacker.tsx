@@ -36,16 +36,25 @@ function CardMediaFrame({data}: {data: CardDataProps}) {
         imgSrc = data.image
     }
 
-    return <div className="absolute top-[15%] right-[5%] w-[40%] h-[50%]">
-        {imgSrc && <img
-            src={imgSrc}
-            alt="example"
-            style={{
-                width: "100%",
-                height: "auto",
-                objectFit: "contain",
-            }}
-        />}
+    let webLink = "null"
+    data.links.forEach(link => {
+        if (link.name === "Website") {
+            webLink = link.url
+        }
+    })
+
+    return <div className="w-full h-full">
+        {imgSrc && <a href={webLink} target="_blank" rel="noreferrer" title={data.title}>
+            <img
+                src={imgSrc}
+                alt="example"
+                style={{
+                    width: "100%",
+                    height: "auto",
+                    objectFit: "contain",
+                }}
+            />
+            </a>}
         {data.youtube && <iframe
             src={`https://www.youtube.com/embed/${data.youtube}`}
             title={data.title}
@@ -53,6 +62,7 @@ function CardMediaFrame({data}: {data: CardDataProps}) {
             style={{
                 width: "100%",
                 height: "100%",
+                // height: "fit",
                 border: "none",
             }}
         />}
@@ -78,19 +88,24 @@ function Card({scrollY, index, background, frameHeight, arrayLength, data}: Card
         }}
     >
         <div className="relative w-full h-full">
-            
-            <div className="absolute top-[2%] left-[5%]"> 
-                <p className="text-5xl font-mono text-white font-bold">{data.title}</p>
-            </div>
             {isMobile ? 
-                <div>
-
+                <div className="absolute h-full flex flex-col items-center gap-8 w-[90%] left-1/2 top-[2%] -translate-x-1/2">
+                    <p className="text-5xl font-mono text-white font-bold text-center">{data.title}</p>
+                    <p className="text-xl font-mono text-white font-light text-center">{data.description}</p>
+                    <div className="w-[80vmin] h-[45vmin]">
+                        <CardMediaFrame data={data}/>                
+                    </div>
                 </div>:
                 <div className="relative h-full w-full">
+                    <div className="absolute top-[2%] left-[5%]"> 
+                        <p className="text-5xl font-mono text-white font-bold">{data.title}</p>
+                    </div>
                     <div className="absolute top-[15%] left-[5%] w-[45%]">
                         <p className="text-2xl font-mono text-white font-light text-left">{data.description}</p>
                     </div>
-                    <CardMediaFrame data={data}/>
+                    <div className="absolute top-[15%] right-[5%] w-[40%] h-[50%]" >
+                        <CardMediaFrame data={data}/>
+                    </div>
                 </div>
             }
             <div className="absolute bottom-[5%] left-[5%] flex flex-row">

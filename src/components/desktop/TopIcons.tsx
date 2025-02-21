@@ -4,8 +4,8 @@ import LinkButton from "../LinkButton"
 import useCopyToClipboard from "../../hooks/useCopyToClipboard";
 
 const icons = [
-    {imgSrc: "https://img.icons8.com/ios11/512/FFFFFF/linkedin.png", link: "https://www.linkedin.com/in/lliam-symonds-184885292/"},
-    {imgSrc: "https://img.icons8.com/ios11/512/FFFFFF/github.png", link: "https://github.com/lliamsymonds04"},
+    {imgSrc: "https://img.icons8.com/ios11/512/FFFFFF/linkedin.png", link: "https://www.linkedin.com/in/lliam-symonds-184885292/", title: "LinkedIn"},
+    {imgSrc: "https://img.icons8.com/ios11/512/FFFFFF/github.png", link: "https://github.com/lliamsymonds04", title: "Github"},
 ]
 
 const myEmail = "lliamsymonds04@gmail.com";
@@ -20,6 +20,7 @@ function TopIcons () {
             <button
                 type="button"
                 onClick={copyEmailToClipboard}
+                title="Copy Email"
             >
                 <img src="https://img.icons8.com/?size=100&id=86875&format=png&color=FFFFFF" className="h-10 w-10" style={{ cursor: 'pointer' }}/>
             </button>
