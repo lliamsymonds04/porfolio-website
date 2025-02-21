@@ -12,6 +12,21 @@
             "youtube": "NQgYAUxvRFQ"
         },
         {
+            "title": "Unemployment Rate Predictor",
+            "description": "This project uses a LSTM neural network to predict the unemployment rate in Australia. The data is from the ABS and is trained on the unemployment, inflation and interest rate from 1991 to 2025. The model is written in Python and uses Pytorch and flask on the backend. The content was dockerized and runs on Google Cloud Run.",
+            "links": [
+                {
+                    "name": "Github",
+                    "url": "https://github.com/lliamsymonds04/forecasting-unemployment"
+                },
+                {
+                    "name": "Website",
+                    "url": "https://forecasting-unemployment.vercel.app/"
+                }
+            ],
+            "image": "https://github.com/lliamsymonds04/forecasting-unemployment/raw/main/public/ExampleImage.png"
+        },
+        {
             "title": "Macro AI",
             "description": "Anoter interest of mine is health and fitness. This project uses ChatGPT API to give an estimate of calories and protein from a description or an image of a meal. This project was also my first React app. Test with the website out below!",
             "links": [
@@ -44,6 +59,10 @@
                 {
                     "name": "Github",
                     "url": "https://github.com/lliamsymonds04/cd-player"
+                },
+                {
+                    "name": "Website",
+                    "url": "https://playcds.netlify.app/"
                 }
             ],
             "image": "https://github.com/lliamsymonds04/cd-player/raw/master/public/ExampleImage.png"
