@@ -5,10 +5,6 @@ Welcome to my portfolio website repository! This project showcases my skills, pr
 ## 🚀 Live Demo
 You can check out my live portfolio here: [Portfolio Link](https://lliamsymonds04.github.io/)
 
-## 🛠 Tech Stack
-- **Frontend:** React, Vite, Tailwind CSS
-- **Backend:** Flask
-
 ## 📬 Contact
 Feel free to reach out if you have any questions or feedback!
 - Email: [lliamsymonds@gmail.com](mailto:your.email@example.com)
