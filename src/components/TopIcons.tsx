@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "motion/react";
 
-import LinkButton from "../LinkButton"
-import useCopyToClipboard from "../../hooks/useCopyToClipboard";
+import LinkButton from "./LinkButton";
+import useCopyToClipboard from "./../hooks/useCopyToClipboard";
 
 const icons = [
     {imgSrc: "https://img.icons8.com/ios11/512/FFFFFF/linkedin.png", link: "https://www.linkedin.com/in/lliam-symonds-184885292/", title: "LinkedIn"},
