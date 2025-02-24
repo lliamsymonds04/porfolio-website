@@ -1,8 +1,7 @@
-import { useRef, useState, useLayoutEffect } from "react";
+import { useRef, useState, useLayoutEffect, useEffect } from "react";
 import { useScroll, motion, useTransform, MotionValue } from "motion/react";
 import { useSmallerText, useCheckMobile } from "../hooks/ScalingHooks";
 
-import ProjectData from "../assets/ProjectData.json";
 import LinkButton from "./LinkButton";
 
 interface CardDataProps {
@@ -43,7 +42,7 @@ function CardMediaFrame({data}: {data: CardDataProps}) {
         }
     })
 
-    return <div className="w-full h-full">
+    return (<div className="w-full h-full">
         {imgSrc && <a href={webLink} target="_blank" rel="noreferrer" title={data.title}>
             <img
                 src={imgSrc}
@@ -65,7 +64,7 @@ function CardMediaFrame({data}: {data: CardDataProps}) {
                 border: "none",
             }}
         />}
-    </div>
+    </div>)
 }
 
 
@@ -119,6 +118,18 @@ function Card({scrollY, index, background, frameHeight, arrayLength, data}: Card
     </motion.div>)
 }
 
+type ProjectProps = {
+    title: string,
+    description: string,
+    links: { name: string; url: string; }[],
+    image?: string,
+    youtube?: string,
+    gif?: string,
+}
+
+type ProjectDataProps = {
+    projects: ProjectProps[]
+}
 
 function CardStacker() {
     const [frameHeight, setFrameHeight] = useState(0);
@@ -129,13 +140,25 @@ function CardStacker() {
         offset: ["start end", "end end"]
     });
 
+    const [projectData, setProjectData] = useState<ProjectDataProps>({projects: []});
+
+    useEffect(() => {
+        fetch("/ProjectData.json")
+        .then((response) => {
+            if (!response.ok) {
+            throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then((jsonData) => setProjectData(jsonData))
+        .catch((error) => console.error("Error fetching the JSON:", error));
+    }, []);
 
     // Get frame size
     useLayoutEffect(() => {
         function updateHeight() {
             if (scrollFrameRef.current) {
                 setFrameHeight(scrollFrameRef.current.offsetHeight);
-                console.log("resize detected");
             }
         }
 
@@ -150,8 +173,8 @@ function CardStacker() {
 
     return (
         <div ref={scrollFrameRef} className="relative w-screen justify-center items-center flex flex-col gap-52">
-            {ProjectData.projects.map((projectData, index) => (
-                <Card key={index} scrollY={scrollY} frameHeight={frameHeight} arrayLength={ProjectData.projects.length} background={background} index={index} data={projectData}/>
+            {projectData.projects.map((data, index) => (
+                <Card key={index} scrollY={scrollY} frameHeight={frameHeight} arrayLength={projectData.projects.length} background={background} index={index} data={data}/>
             ))}
         </div>
     )
