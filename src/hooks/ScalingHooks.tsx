@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function useCheckMobile() {
+function useCheckSize({size}: {size: number}) {
     const [width, setWidth] = useState(window.innerWidth);
     const handleWindowSizeChange = () => {
             setWidth(window.innerWidth);
@@ -13,7 +13,13 @@ function useCheckMobile() {
         }
     }, []);
 
-    return (width <= 768);
+    return (width <= size);
 }
 
-export default useCheckMobile;
+export function useCheckMobile() {
+    return useCheckSize({size: 768});
+}
+
+export function useSmallerText() {
+    return useCheckSize({size: 2500});
+}

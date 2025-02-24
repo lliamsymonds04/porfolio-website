@@ -1,6 +1,6 @@
 import { useRef, useState, useLayoutEffect } from "react";
 import { useScroll, motion, useTransform, MotionValue } from "motion/react";
-import useCheckMobile from "../hooks/useCheckMobile";
+import { useSmallerText, useCheckMobile } from "../hooks/ScalingHooks";
 
 import ProjectData from "../assets/ProjectData.json";
 import LinkButton from "./LinkButton";
@@ -62,7 +62,6 @@ function CardMediaFrame({data}: {data: CardDataProps}) {
             style={{
                 width: "100%",
                 height: "100%",
-                // height: "fit",
                 border: "none",
             }}
         />}
@@ -72,6 +71,7 @@ function CardMediaFrame({data}: {data: CardDataProps}) {
 
 function Card({scrollY, index, background, frameHeight, arrayLength, data}: CardProps) {
     const isMobile = useCheckMobile();
+    const isSmallerText = useSmallerText();
 
     const lowerBound = Math.trunc(frameHeight * (index )/arrayLength);
     const upperBound = Math.trunc(frameHeight * (index + 2)/arrayLength);
@@ -101,7 +101,9 @@ function Card({scrollY, index, background, frameHeight, arrayLength, data}: Card
                         <p className="text-5xl font-mono text-white font-bold">{data.title}</p>
                     </div>
                     <div className="absolute top-[15%] left-[5%] w-[45%]">
-                        <p className="text-2xl font-mono text-white font-light text-left">{data.description}</p>
+                        <p className={`font-mono text-white font-light text-left ${isSmallerText ? "text-xl" : "text-2xl"}`}>
+                            {data.description}
+                        </p>
                     </div>
                     <div className="absolute top-[15%] right-[5%] w-[40%] h-[50%]" >
                         <CardMediaFrame data={data}/>
@@ -109,9 +111,8 @@ function Card({scrollY, index, background, frameHeight, arrayLength, data}: Card
                 </div>
             }
             <div className="absolute bottom-[5%] left-[5%] flex flex-row">
-  
                 {data.links.map((link, index) => (
-                    <LinkButton key={index} imgSrc={LinkImages[link.name]} link={link.url} size={20}/>
+                    <LinkButton key={index} imgSrc={LinkImages[link.name]} link={link.url} size={isSmallerText ? 15 : 20}/>
                 ))}
             </div>
         </div>
@@ -131,9 +132,17 @@ function CardStacker() {
 
     // Get frame size
     useLayoutEffect(() => {
-        if (scrollFrameRef.current) {
-            setFrameHeight(scrollFrameRef.current.offsetHeight);
+        function updateHeight() {
+            if (scrollFrameRef.current) {
+                setFrameHeight(scrollFrameRef.current.offsetHeight);
+                console.log("resize detected");
+            }
         }
+
+        updateHeight(); // Initial height set
+
+        window.addEventListener("resize", updateHeight);
+        return () => window.removeEventListener("resize", updateHeight);
     }, []);
 
 

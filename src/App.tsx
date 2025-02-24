@@ -1,15 +1,10 @@
-import { useRef, useState, useLayoutEffect, useEffect } from "react";
-import { useScroll, useTransform, motion } from "motion/react";
+import { useEffect } from "react";
 
-import useCheckMobile from "./hooks/useCheckMobile"
-import HomepageCard from "./components/desktop/HomepageCard"
+import { useCheckMobile } from "./hooks/ScalingHooks"
 import CardStacker from "./components/CardStacker"
 import TopIcons from "./components/TopIcons";
 
 import Footer from "./components/Footer";
-import SkillsCard from "./components/HomeCards/SkillsCard";
-import MeCard from "./components/HomeCards/MeCard";
-import AboutMeCard from "./components/HomeCards/AboutMeCard";
 import LandingPage from "./components/mobile/LandingPage";
 import DesktopLandingPage from "./components/desktop/DesktopLandingPage";
 
