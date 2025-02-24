@@ -40,7 +40,7 @@ const App = () => {
 
 
   return (
-    <div className="h-auto w-screen bg-[#17141C] min-height-screen">
+    <div className="h-auto w-screen min-height-screen">
       {isMobile ? (
         <div ref={landingPageRef} className="relative  w-screen">
           <TopIcons />
