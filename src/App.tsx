@@ -4,7 +4,7 @@ import { useScroll, useTransform, motion } from "motion/react";
 import useCheckMobile from "./hooks/useCheckMobile"
 import HomepageCard from "./components/desktop/HomepageCard"
 import CardStacker from "./components/CardStacker"
-import TopIcons from "./components/desktop/TopIcons";
+import TopIcons from "./components/TopIcons";
 
 import Footer from "./components/Footer";
 import SkillsCard from "./components/HomeCards/SkillsCard";
@@ -68,10 +68,7 @@ const App = () => {
                 <MeCard/>
               </HomepageCard>
             </motion.div>
-          </div>
-
-          
-          
+          </div>          
         </div>
       )}
       <div className="w-screen h-[50vh]"/>
