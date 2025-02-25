@@ -16,7 +16,7 @@ function TopIcons () {
 
     return (
         <div className="absolute flex flex-row-reverse right-5 top-5 gap-2 items-center">
-            {icons.map((v) => <LinkButton key={v.link} imgSrc={v.imgSrc} link={v.link} />)}
+            {icons.map((v) => <LinkButton key={v.link} imgSrc={v.imgSrc} link={v.link} title={v.title}/>)}
             <button
                 type="button"
                 onClick={copyEmailToClipboard}
