@@ -53,7 +53,7 @@ function CardMediaFrame({data}: {data: CardDataProps}) {
                     objectFit: "contain",
                 }}
             />
-            </a>}
+        </a>}
         {data.youtube && <iframe
             src={`https://www.youtube.com/embed/${data.youtube}`}
             title={data.title}

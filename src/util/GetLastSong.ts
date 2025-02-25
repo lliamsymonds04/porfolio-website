@@ -4,8 +4,11 @@ const url = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user
 
 
 async function getLastSong() {
+    console.log("Fetching last song")
     const response = await fetch(url)
     const data = await response.json()
+
+    console.log(data)
 
     if (data.recenttracks) {
         const lastTrack = data.recenttracks.track[0]
@@ -17,6 +20,8 @@ async function getLastSong() {
             trackName: trackName
         }
     }
+
+    return null
 }
 
 
