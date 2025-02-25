@@ -42,17 +42,6 @@
             "gif": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNW51OXVnZHNjOGUzNWRpaGp0M3diamRpM3V3ZTRmY3RiZHZoZWtoOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XcgD12iKPtDT199X4y/giphy.gif"
         },
         {
-            "title": "Gesture Controlled Mouse",
-            "description": "I was really interested in ways to interact with computers through physical means. So, using hand tracking and a webcam, I made it so you can control the mouse by moving your hand and click with your fingers. Written in python and uses OpenCV and Mediapipe.",
-            "links": [
-                {
-                    "name": "Github",
-                    "url": "https://github.com/lliamsymonds04/GestureMouse"
-                }
-            ],
-            "youtube": "_TF5U_LJeq8"
-        },
-        {
             "title": "Spotify CD Visualiser",
             "description": "I made this spotify visualiser with React and the Spotify API. It displays the users current song and queue as CDs, animating the currently playing CD. The website hosting doesn't work for other users as spotify won't take my API out of dev mode but it's still cool :)",
             "links": [
@@ -66,6 +55,17 @@
                 }
             ],
             "image": "https://github.com/lliamsymonds04/cd-player/raw/master/public/ExampleImage.png"
+        },
+        {
+            "title": "Gesture Controlled Mouse",
+            "description": "I was really interested in ways to interact with computers through physical means. So, using hand tracking and a webcam, I made it so you can control the mouse by moving your hand and click with your fingers. Written in python and uses OpenCV and Mediapipe.",
+            "links": [
+                {
+                    "name": "Github",
+                    "url": "https://github.com/lliamsymonds04/GestureMouse"
+                }
+            ],
+            "youtube": "_TF5U_LJeq8"
         }
     ]
 }
