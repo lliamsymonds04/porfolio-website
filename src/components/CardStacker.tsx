@@ -73,15 +73,15 @@ function Card({scrollY, index, background, frameHeight, arrayLength, data}: Card
     const isMobile = useCheckMobile();
     const isSmallerText = useSmallerText();
 
-    const lowerBound = Math.trunc(frameHeight * (index )/arrayLength);
-    const upperBound = Math.trunc(frameHeight * (index + 2)/arrayLength);
+    const lowerBound = Math.trunc(frameHeight * (index -0.2 )/arrayLength);
+    const upperBound = Math.trunc(frameHeight * (index + 1.2)/arrayLength);
     const scale = useTransform(scrollY, [lowerBound, upperBound], [0.5, 1-index*0.01]);
 
     return (<motion.div
-        className="sticky rounded-3xl drop-shadow-lg shadow-2xl -translate-y-1/2 "
+        className="sticky rounded-3xl drop-shadow-lg shadow-2xl" //-translate-y-1/2
         style={{
             backgroundColor: background,
-            top: `calc(50% - ${(arrayLength - index) * (isMobile ? 10: 25)}px)`,
+            top: `calc(${isMobile ? 15 : 20}% - ${(arrayLength - index) * 10}px)`,
             scale: scale,
             width: isMobile ? "90vw": "40vw",
             height: isMobile ? "75vh": "45vh",
@@ -135,6 +135,7 @@ type ProjectDataProps = {
 function CardStacker() {
     const [frameHeight, setFrameHeight] = useState(0);
     const scrollFrameRef = useRef<HTMLDivElement | null>(null);
+    const isMobile = useCheckMobile();
 
     const { scrollY } = useScroll({
         target: scrollFrameRef,
@@ -174,7 +175,9 @@ function CardStacker() {
 
     return (
         <div ref={scrollFrameRef} className="relative w-screen justify-center items-center flex flex-col gap-52">
-            <MyProjectsTag/>
+            <div className={`${isMobile ? "top-2" : "top-[10%] h-10"} sticky`}>
+                <MyProjectsTag/>
+            </div>
             {projectData.projects.map((data, index) => (
                 <Card key={index} scrollY={scrollY} frameHeight={frameHeight} arrayLength={projectData.projects.length} background={background} index={index} data={data}/>
             ))}

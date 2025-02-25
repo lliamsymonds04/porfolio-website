@@ -23,6 +23,7 @@ const App = () => {
       ) : <DesktopLandingPage/>}
       <div className="w-screen h-[50vh]"/>
       <CardStacker />
+      <div className={`${isMobile ? "h-18" : "h-72"}`}/>
       <Footer/>
     </div>
   )

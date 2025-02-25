@@ -25,16 +25,16 @@ function MobileLandingPage() {
     }, [dots]);
 
     return (
-            <div className="relative w-full flex flex-col items-center gap-14 h-fit mb-20">
-                <div className="sticky top-0 w-[90%] h-20">
-                    <TopIcons/>
-                </div>
-                {cards.map((card, index) => (
-                    <Card key={index} colour={index % 2 === 0 ? "#FFBB00" : "#FFC936"} index={index}>
-                        {card()}
-                    </Card>
-                ))}
+        <div className="relative w-full flex flex-col items-center gap-14 h-fit">
+            <div className="sticky top-0 w-[90%] h-20">
+                <TopIcons/>
             </div>
+            {cards.map((card, index) => (
+                <Card key={index} colour={index % 2 === 0 ? "#FFBB00" : "#FFC936"} index={index}>
+                    {card()}
+                </Card>
+            ))}
+        </div>
         
     );
 }
