@@ -4,6 +4,7 @@ import { useScroll, useTransform, motion } from "motion/react";
 import AboutMeCard from '../HomeCards/AboutMeCard';
 import SkillsCard from '../HomeCards/SkillsCard';
 import MeCard from '../HomeCards/MeCard';
+import TopIcons from '../TopIcons';
 
 function DesktopLandingPage() {
     const [landingPageHeight, setLandingPageHeight] = useState(0);
@@ -27,6 +28,7 @@ function DesktopLandingPage() {
 
     return (
         <div ref={landingPageRef} className = "h-screen w-screen flex">
+            <TopIcons/>
             <motion.div
                 className='bg-[#FFBB00] absolute rounded-3xl drop-shadow-2xl overflow-hidden top-[25%] left-[43%] -translate-x-full -translate-y-1/2'
                 style={{x: left_card_x, width: `${size + 4}vmin`, height: `${size}vmin`}}

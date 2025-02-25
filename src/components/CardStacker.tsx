@@ -3,6 +3,7 @@ import { useScroll, motion, useTransform, MotionValue } from "motion/react";
 import { useSmallerText, useCheckMobile } from "../hooks/ScalingHooks";
 
 import LinkButton from "./LinkButton";
+import MyProjectsTag from "./MyProjectsTag";
 
 interface CardDataProps {
     title: string,
@@ -42,8 +43,8 @@ function CardMediaFrame({data}: {data: CardDataProps}) {
         }
     })
 
-    return (<div className="w-full h-full">
-        {imgSrc && <a href={webLink} target="_blank" rel="noreferrer" title={data.title}>
+    return (<div className="flex w-full h-full">
+        {imgSrc && <a href={webLink} target="_blank" rel="noreferrer" title={data.title} className="bottom-0 flex">
             <img
                 src={imgSrc}
                 alt="example"
@@ -80,18 +81,18 @@ function Card({scrollY, index, background, frameHeight, arrayLength, data}: Card
         className="sticky rounded-3xl drop-shadow-lg shadow-2xl -translate-y-1/2 "
         style={{
             backgroundColor: background,
-            top: `calc(50% - ${(arrayLength - index) * 25}px)`,
+            top: `calc(50% - ${(arrayLength - index) * (isMobile ? 10: 25)}px)`,
             scale: scale,
             width: isMobile ? "90vw": "40vw",
-            height: isMobile ? "70vh": "45vh",
+            height: isMobile ? "75vh": "45vh",
         }}
     >
         <div className="relative w-full h-full">
             {isMobile ? 
-                <div className="absolute h-full flex flex-col items-center gap-8 w-[90%] left-1/2 top-[2%] -translate-x-1/2">
-                    <p className="text-5xl font-mono text-white font-bold text-center">{data.title}</p>
-                    <p className="text-xl font-mono text-white font-light text-center">{data.description}</p>
-                    <div className="w-[80vmin] h-[45vmin]">
+                <div className="absolute h-full flex flex-col items-center gap-4 w-[90%] left-1/2 top-[2%] -translate-x-1/2">
+                    <p className="text-3xl font-mono text-white font-bold text-center">{data.title}</p>
+                    <p className="text-md font-mono text-white font-light text-center">{data.description}</p>
+                    <div className="absolute bottom-[20%]  w-[80vmin] h-[45vmin]">
                         <CardMediaFrame data={data}/>                
                     </div>
                 </div>:
@@ -173,6 +174,7 @@ function CardStacker() {
 
     return (
         <div ref={scrollFrameRef} className="relative w-screen justify-center items-center flex flex-col gap-52">
+            <MyProjectsTag/>
             {projectData.projects.map((data, index) => (
                 <Card key={index} scrollY={scrollY} frameHeight={frameHeight} arrayLength={projectData.projects.length} background={background} index={index} data={data}/>
             ))}
