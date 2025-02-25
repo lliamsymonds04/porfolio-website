@@ -28,7 +28,7 @@ function DesktopLandingPage() {
     return (
         <div ref={landingPageRef} className = "h-screen w-screen flex">
             <motion.div
-                className='bg-[#FFC936] absolute rounded-3xl drop-shadow-2xl overflow-hidden top-[25%] left-[43%] -translate-x-full -translate-y-1/2'
+                className='bg-[#FFBB00] absolute rounded-3xl drop-shadow-2xl overflow-hidden top-[25%] left-[43%] -translate-x-full -translate-y-1/2'
                 style={{x: left_card_x, width: `${size + 4}vmin`, height: `${size}vmin`}}
             >
                 <SkillsCard/>
@@ -40,7 +40,7 @@ function DesktopLandingPage() {
                 <AboutMeCard/>
             </div>
             <motion.div
-                className='bg-[#FFC936] absolute rounded-3xl drop-shadow-2xl overflow-hidden top-[75%] left-[57%] -translate-y-1/2'
+                className='bg-[#FFBB00] absolute rounded-3xl drop-shadow-2xl overflow-hidden top-[75%] left-[57%] -translate-y-1/2'
                 style={{x: right_card_x, width: `${size + 4}vmin`, height: `${size}vmin`}}
             >
                 <MeCard/>
