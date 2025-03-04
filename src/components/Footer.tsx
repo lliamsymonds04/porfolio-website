@@ -38,7 +38,7 @@ function Footer() {
                 {footerButtons.map((v) => <LinkButton imgSrc={v.imgSrc} link={v.link} key={v.imgSrc} />)}
             </div>
 
-            {songName != "" && <p className="absolute text-lg text-white font-light text-center bottom-3">Fun Fact, the last song I listened to is{" "}
+            {songName != "" && <p className="absolute text-lg text-white font-light text-center bottom-3 max-w-[90%]">Fun Fact, the last song I listened to is{" "}
                 <span className="italic">{songName}</span>
                 {" by "} 
                 <span className="italic">{artistName}</span>
