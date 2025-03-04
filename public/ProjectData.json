@@ -12,6 +12,21 @@
             "youtube": "NQgYAUxvRFQ"
         },
         {
+            "title": "Exercise Tracker",
+            "description": "A fullstack no-frills exercise tracker i made for myself. It uses react for the front end and Flask and postgreSQL on the backend to handle data. I made this as many alternatives required a subscription or had to many ads/bloat.",
+            "links": [
+                {
+                    "name": "Github",
+                    "url": "https://github.com/lliamsymonds04/exercise-tracker"
+                },
+                {
+                    "name": "Website",
+                    "url": "https://lliams-exercise-tracker.vercel.app"
+                }
+            ],
+            "image": "https://github.com/lliamsymonds04/exercise-tracker/raw/master/public/example.png"
+        },
+        {
             "title": "Unemployment Rate Predictor",
             "description": "This project uses a LSTM neural network to predict the unemployment rate in Australia. The data is from the ABS and is trained on the unemployment, inflation and interest rate from 1991 to 2025. The model is written in Python and uses Pytorch and flask on the backend. The content was dockerized and runs on Google Cloud Run.",
             "links": [
