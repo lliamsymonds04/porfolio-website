@@ -91,7 +91,7 @@ function Card({scrollY, index, background, frameHeight, arrayLength, data}: Card
             {isMobile ? 
                 <div className="absolute h-full flex flex-col items-center gap-4 w-[90%] left-1/2 top-[2%] -translate-x-1/2">
                     <p className="text-3xl font-mono text-white font-bold text-center">{data.title}</p>
-                    <p className="text-md font-mono text-white font-light text-center">{data.description}</p>
+                    <p className="text-sm font-mono text-white font-light text-center">{data.description}</p>
                     <div className="absolute bottom-[20%]  w-[80vmin] h-[45vmin]">
                         <CardMediaFrame data={data}/>                
                     </div>
