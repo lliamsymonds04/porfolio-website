@@ -11,7 +11,7 @@ function MyProjectsTag() {
     }, [dots]);
 
     return (
-        <p className="text-4xl font-serif h-10">My Projects {".".repeat(dots)}</p>
+        <p className="text-4xl font-serif h-10 mb-10">My Projects {".".repeat(dots)}</p>
     )
 }
 

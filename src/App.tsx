@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 
 import { useCheckMobile } from "./hooks/ScalingHooks"
-import CardStacker from "./components/CardStacker"
 
 import Footer from "./components/Footer";
 import MobileLandingPage from "./components/mobile/MobileLandingPage";
 import DesktopLandingPage from "./components/desktop/DesktopLandingPage";
+import Projects from "./components/Projects";
 
 const App = () => {
   const isMobile = useCheckMobile()
@@ -21,9 +21,7 @@ const App = () => {
       {isMobile ? (
         <MobileLandingPage />
       ) : <DesktopLandingPage/>}
-      <div className="w-screen h-[50vh]"/>
-      <CardStacker />
-      <div className={`${isMobile ? "h-18" : "h-72"}`}/>
+      <Projects/>
       <Footer/>
     </div>
   )
