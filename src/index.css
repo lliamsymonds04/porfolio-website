@@ -19,7 +19,7 @@
 
 html,
 body {
-    @apply bg-[#17141C] text-[#FFFFFF];
+    @apply bg-[#17141C] text-white font-sans;
   
     @media (prefers-color-scheme: dark) {
       color-scheme: dark;

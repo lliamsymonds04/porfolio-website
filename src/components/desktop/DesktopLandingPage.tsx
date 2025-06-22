@@ -1,52 +1,31 @@
-import { useState, useRef, useLayoutEffect } from 'react';
-import { useScroll, useTransform, motion } from "motion/react";
+import { useState, useRef } from 'react';
 
-import AboutMeCard from '../HomeCards/AboutMeCard';
-import SkillsCard from '../HomeCards/SkillsCard';
-import MeCard from '../HomeCards/MeCard';
 import TopIcons from '../TopIcons';
 
 function DesktopLandingPage() {
-    const [landingPageHeight, setLandingPageHeight] = useState(0);
-    const landingPageRef = useRef<HTMLDivElement | null>(null)
-
-    const { scrollY } = useScroll({
-        target: landingPageRef,
-        offset: ["start end", "end end"]
-    })
-    
-    useLayoutEffect(() => {
-        if (landingPageRef.current) {
-        setLandingPageHeight(landingPageRef.current.offsetHeight );
-        }
-    }, []);
-
-    const left_card_x = useTransform(scrollY, [0, landingPageHeight], ["0vmin","-250vmin"])
-    const right_card_x = useTransform(scrollY, [0, landingPageHeight], ["0vmin","250vmin"])//["12vmin","150vmin"]
-
-    const size = 40;
-
     return (
-        <div ref={landingPageRef} className = "h-screen w-screen flex">
+        <div className = "h-screen w-screen flex">
             <TopIcons/>
-            <motion.div
-                className='bg-[#FFBB00] absolute rounded-3xl drop-shadow-2xl overflow-hidden top-[25%] left-[43%] -translate-x-full -translate-y-1/2'
-                style={{x: left_card_x, width: `${size + 4}vmin`, height: `${size}vmin`}}
-            >
-                <SkillsCard/>
-            </motion.div>
-            <div 
-                className="bg-[#FFC936] absolute rounded-3xl drop-shadow-2xl overflow-hidden top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                style={{width: `${size + 4}vmin`, height: `${size}vmin`}}
-            >
-                <AboutMeCard/>
+
+            <div className='flex flex-row justify-center items-center absolute top-1/4 px-96 left-1/2 -translate-x-1/2 w-max'>
+                <div className='flex flex-col justify-start items-start w-[50%] pr-32'>
+                    <div className = 'text-[#FFBB00] text-[clamp(0.6rem,1vw,1.2rem)] -mb-6 ml-2'>
+                        Hi, my name is
+                    </div>
+                    <div className='text-[#FFC936] text-[clamp(6.5rem,1vw,10rem)]'>
+                        Lliam Symonds
+                    </div>
+                    <div className = 'text-[#FFBB00] text-[clamp(3rem,1vw,6rem)] leading-tight pb-6'>
+                        Machine Learning and Software Engineer
+                    </div> 
+                    <div className='text-[clamp(1.5rem,1vw,3rem)]' style={{color:'rgba(255,255,255,0.85'}}>
+                        Im a computer science student at UQ graduating in 2025 majoring in Machine Learning
+                    </div>
+                </div>
+
+                <img src={'/PhotoOfMe.jpg'} alt="Photo of me" className="w-[30%] h-auto rounded-full shadow-inner drop-shadow-lg" />
             </div>
-            <motion.div
-                className='bg-[#FFBB00] absolute rounded-3xl drop-shadow-2xl overflow-hidden top-[75%] left-[57%] -translate-y-1/2'
-                style={{x: right_card_x, width: `${size + 4}vmin`, height: `${size}vmin`}}
-            >
-                <MeCard/>
-            </motion.div>
+            
         </div>
     );
 }

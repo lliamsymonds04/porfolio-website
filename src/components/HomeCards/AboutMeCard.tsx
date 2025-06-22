@@ -9,7 +9,7 @@ function AboutMeCard() {
             <p className="text-white italic text-lg ml-4 mb-5">
                 yes with two L's
             </p>
-            <p className={`${isMobile ? "text-lg" : "text-2xl"} text-white mb-5`}>
+            <p className={`text-[clamp(1rem,2vw,2rem)] text-white mb-5`}>
                 I'm a third year <span className="font-bold">Computer Science</span> student at <span className="underline">UQ graduating 2025.</span>
             </p>
             <p className={`${isMobile ? "text-lg" : "text-2xl"} text-white mb-5 w-[80%]`}>
