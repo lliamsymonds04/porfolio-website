@@ -27,6 +27,16 @@
             "image": "https://github.com/lliamsymonds04/exercise-tracker/raw/master/public/example.png"
         },
         {
+            "title": "Pool Shot Calculator",
+            "description": "A pool shot calculator that uses computer vision to calculate the best shot to take in a game of pool. It uses Python and OpenCV to find the pool table and balls, and then calculates the best shot to take based on the positions of the balls.",
+            "links": [
+                {
+                    "name": "Github",
+                    "url": "https://github.com/lliamsymonds04/pool-shot-predictor"
+                }
+            ]
+        },
+        {
             "title": "Unemployment Rate Predictor",
             "description": "This project uses a LSTM neural network to predict the unemployment rate in Australia. The data is from the ABS and is trained on the unemployment, inflation and interest rate from 1991 to 2025. The model is written in Python and uses Pytorch and flask on the backend. The content was dockerized and runs on Google Cloud Run.",
             "links": [
@@ -55,6 +65,16 @@
                 }
             ],
             "gif": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNW51OXVnZHNjOGUzNWRpaGp0M3diamRpM3V3ZTRmY3RiZHZoZWtoOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XcgD12iKPtDT199X4y/giphy.gif"
+        },
+        {
+            "title": "Soften Music",
+            "description": "A program i made with C# and Dotnet that turns down spotify volume when a video starts playing. I made this as I often watch videos while listening to music and it was annoying to have to turn down the music volume every time. It uses the NAudio and Windows Media Control Interface to control the volume.",
+            "links": [
+                {
+                    "name": "Github",
+                    "url": "https://github.com/lliamsymonds04/macro-ai"
+                }
+            ]
         },
         {
             "title": "Spotify CD Visualiser",
