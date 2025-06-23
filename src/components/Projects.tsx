@@ -57,6 +57,7 @@ function MediaFrame({data}: {data: ProjectProps}) {
                 <YouTube
                     videoId={data.youtube}
                     title={data.title}
+                    className="w-full h-auto"
                 />
             )}
         </div>
@@ -65,7 +66,7 @@ function MediaFrame({data}: {data: ProjectProps}) {
 
 function Dots({ count }: { count: number }) {
     return (
-        <div className="flex flex-row gap-3 align-center justify-center mt-4 mb-2">
+        <div className="flex flex-row gap-3 align-center justify-center mt-4 mb-8">
             {Array.from({ length: count }).map((_, index) => (
                 <div key={index} className="w-3 h-3 bg-[#FFC936] rounded-full" />
             ))}
@@ -75,7 +76,7 @@ function Dots({ count }: { count: number }) {
 
 function ProjectCard({ data }: { data: ProjectProps }) {
     return (
-        <div className="w-[95%] max-w-[40rem] mb-10">
+        <div className="w-[85%] max-w-[40rem] mb-10">
             <h1 className="text-4xl font-bold mb-2">{data.title}</h1>
             <MediaFrame data={data} />
             <p className="text-lg mb-4">{data.description}</p>

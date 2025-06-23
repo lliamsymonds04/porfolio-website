@@ -16,8 +16,8 @@ function DesktopLandingPage() {
                     <div className = 'text-[#FFBB00] text-[clamp(3rem,1vw,6rem)] leading-tight pb-6'>
                         Machine Learning and Software Engineer
                     </div> 
-                    <div className='text-[clamp(1.5rem,1vw,3rem)]' style={{color:'rgba(255,255,255,0.85'}}>
-                        Im a computer science student at UQ graduating in 2025 majoring in Machine Learning
+                    <div className='text-[clamp(1.5rem,1vw,3rem)]' style={{color:'rgba(255,255,255,0.85)'}}>
+                        Im a computer science student at UQ graduating in 2025 majoring in <b>Machine Learning</b>
                     </div>
                 </div>
 
