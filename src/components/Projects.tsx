@@ -57,17 +57,17 @@ function MediaFrame({data}: {data: ProjectProps}) {
                 <div className="relative w-full pb-[56.25%] h-0 overflow-hidden rounded-lg">
                     <div className="absolute top-0 left-0 w-full h-full">
                         <YouTube
-                        videoId={data.youtube}
-                        title={data.title}
-                        className="w-full h-full"
-                        opts={{
-                            width: "100%",
-                            height: "100%",
-                            playerVars: {
-                            modestbranding: 1,
-                            rel: 0,
-                            },
-                        }}
+                            videoId={data.youtube}
+                            title={data.title}
+                            className="w-full h-full"
+                            opts={{
+                                width: "100%",
+                                height: "100%",
+                                playerVars: {
+                                modestbranding: 1,
+                                rel: 0,
+                                },
+                            }}
                         />
                     </div>
                 </div>
