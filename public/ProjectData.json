@@ -27,6 +27,21 @@
             "image": "https://github.com/lliamsymonds04/exercise-tracker/raw/master/public/example.png"
         },
         {
+            "title": "Walker AI",
+            "description": "A 2D bipedial walker that uses the NEAT genetic algorithm to learn how to walk. The NEAT algorithm was written from scratch following the relevant paper. It is written in Typescript, uses Matter.js for physics and pixiJS for rendering. The walker is trained in the browser and can be run on any device with a web browser.",
+            "links": [
+                {
+                    "name": "Github",
+                    "url": "https://github.com/lliamsymonds04/walker-ai"
+                },
+                {
+                    "name": "Website",
+                    "url": "https://walker-ai.vercel.app/"
+                }
+            ],
+            "image": "https://github.com/lliamsymonds04/walker-ai/raw/main/public/assets/PortfolioImage.png"
+        },
+        {
             "title": "Pool Shot Calculator",
             "description": "A pool shot calculator that uses computer vision to calculate the best shot to take in a game of pool. It uses Python and OpenCV to find the pool table and balls, and then calculates the best shot to take based on the positions of the balls.",
             "links": [
