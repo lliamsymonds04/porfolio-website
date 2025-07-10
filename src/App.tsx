@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import MobileLandingPage from "./components/mobile/MobileLandingPage";
 import DesktopLandingPage from "./components/desktop/DesktopLandingPage";
 import Projects from "./components/Projects";
+import Skills from "./components/Skills";
 
 const App = () => {
   const isMobile = useCheckMobile()
@@ -21,6 +22,7 @@ const App = () => {
       {isMobile ? (
         <MobileLandingPage />
       ) : <DesktopLandingPage/>}
+      <Skills/>
       <Projects/>
       <Footer/>
     </div>
