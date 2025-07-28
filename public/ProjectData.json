@@ -1,15 +1,18 @@
 {
     "projects": [
         {
-            "title": "Hand Stem Player",
-            "description": "A stem player is a device that allows you to separate songs into 'stems' and control them. This project is written in Python and uses OpenCV and Mediapipe to track the hands. Pinching the fingers allows you to control the stem volumes. This stem player supports isolating bass, drums, vocals and backing audio and is seperated using Demucs by Meta",
+            "title": "Inventory Management System",
+            "description": "A fullstack application to manage inventory for a small business. It uses C# and .NET 9 and Entity Framework for the backend and Next.js for the frontend. It allows users to add, edit and delete items, as well as view stock levels and stock logs. It is hosted on Azure with a app service and a SQL server.",
             "links": [
                 {
                     "name": "Github",
-                    "url": "https://github.com/lliamsymonds04/HandStemPlayer"
+                    "url": "https://github.com/lliamsymonds04/inventory-api"
+                },
+                {
+                    "name": "Website",
+                    "url": "https://inventory-viewer-lliam.vercel.app/"
                 }
-            ],
-            "youtube": "NQgYAUxvRFQ"
+            ]
         },
         {
             "title": "Exercise Tracker",
@@ -25,6 +28,17 @@
                 }
             ],
             "image": "https://github.com/lliamsymonds04/exercise-tracker/raw/master/public/example.png"
+        },
+        {
+            "title": "Hand Stem Player",
+            "description": "A stem player is a device that allows you to separate songs into 'stems' and control them. This project is written in Python and uses OpenCV and Mediapipe to track the hands. Pinching the fingers allows you to control the stem volumes. This stem player supports isolating bass, drums, vocals and backing audio and is seperated using Demucs by Meta",
+            "links": [
+                {
+                    "name": "Github",
+                    "url": "https://github.com/lliamsymonds04/HandStemPlayer"
+                }
+            ],
+            "youtube": "NQgYAUxvRFQ"
         },
         {
             "title": "Walker AI",
