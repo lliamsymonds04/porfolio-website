@@ -1,8 +1,23 @@
 {
     "projects": [
         {
+            "title": "Customer Support Bot",
+            "description": "An agentic chat bot that automatically logs forms based on user requests and issues. It uses C# and .NET 9 with Semantic Kernel for AI agent management. SignalR is used for real-time communication of forms and the admin center. The backend is hosted on AWS Elastic Beanstalk with a a postgreSQL database on AWS RDS. Redis is used for caching and session management.",
+            "links": [
+                {
+                    "name": "Github",
+                    "url": "https://github.com/lliamsymonds04/customer-support-bot"
+                },
+                {
+                    "name": "Website",
+                    "url": "https://customer-support-bot-lliam.vercel.app/"
+                }
+            ],
+            "image": "https://github.com/lliamsymonds04/customer-support-bot/raw/main/frontend/public/example.png"
+        },
+        {
             "title": "Inventory Management System",
-            "description": "A fullstack application to manage inventory for a small business. It uses C# and .NET 9 and Entity Framework for the backend and Next.js for the frontend. It allows users to add, edit and delete items, as well as view stock levels and stock logs. It is hosted on Azure with a app service and a SQL server.",
+            "description": "A fullstack application to manage inventory for a small business. It uses C# and .NET 9 and Entity Framework for the backend and React with Next.js for the frontend. It allows users to add, edit and delete items, as well as view stock levels and stock logs. It is hosted on Azure with a app service and a SQL server.",
             "links": [
                 {
                     "name": "Github",
