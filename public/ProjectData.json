@@ -45,6 +45,17 @@
             "image": "https://github.com/lliamsymonds04/exercise-tracker/raw/master/public/example.png"
         },
         {
+            "title": "AI Pole Balancer",
+            "description": "Implementation of the classic cart pole machine learning problem in Unity with ML-Agents. Trained using the GPU to keep a pole balanced on top of a moving cart. Additionally made a video, documenting the process and explaining reinforcement learning concepts.",
+            "links": [
+                {
+                    "name": "Github",
+                    "url": "https://github.com/lliamsymonds04/cart-pole-unity"
+                }
+            ],
+            "youtube": "cMeu4qCxjbk"
+        },
+        {
             "title": "Hand Stem Player",
             "description": "A stem player is a device that allows you to separate songs into 'stems' and control them. This project is written in Python and uses OpenCV and Mediapipe to track the hands. Pinching the fingers allows you to control the stem volumes. This stem player supports isolating bass, drums, vocals and backing audio and is seperated using Demucs by Meta",
             "links": [
