@@ -1,162 +1,177 @@
 {
-    "projects": [
+  "projects": [
+    {
+      "title": "Customer Support Bot",
+      "description": "An agentic chat bot that automatically logs forms based on user requests and issues. It uses C# and .NET 9 with Semantic Kernel for AI agent management. SignalR is used for real-time communication of forms and the admin center. The backend is hosted on AWS Elastic Beanstalk with a a postgreSQL database on AWS RDS. Redis is used for caching and session management.",
+      "links": [
         {
-            "title": "Customer Support Bot",
-            "description": "An agentic chat bot that automatically logs forms based on user requests and issues. It uses C# and .NET 9 with Semantic Kernel for AI agent management. SignalR is used for real-time communication of forms and the admin center. The backend is hosted on AWS Elastic Beanstalk with a a postgreSQL database on AWS RDS. Redis is used for caching and session management.",
-            "links": [
-                {
-                    "name": "Github",
-                    "url": "https://github.com/lliamsymonds04/customer-support-bot"
-                },
-                {
-                    "name": "Website",
-                    "url": "https://customer-support-bot-lliam.vercel.app/"
-                }
-            ],
-            "image": "https://github.com/lliamsymonds04/customer-support-bot/raw/main/frontend/public/example.png"
+          "name": "Github",
+          "url": "https://github.com/lliamsymonds04/customer-support-bot"
         },
         {
-            "title": "Inventory Management System",
-            "description": "A fullstack application to manage inventory for a small business. It uses C# and .NET 9 and Entity Framework for the backend and React with Next.js for the frontend. It allows users to add, edit and delete items, as well as view stock levels and stock logs. It is hosted on Azure with a app service and a SQL server.",
-            "links": [
-                {
-                    "name": "Github",
-                    "url": "https://github.com/lliamsymonds04/inventory-api"
-                },
-                {
-                    "name": "Website",
-                    "url": "https://inventory-viewer-lliam.vercel.app/"
-                }
-            ]
-        },
-        {
-            "title": "Exercise Tracker",
-            "description": "A fullstack no-frills exercise tracker i made for myself. It uses react for the front end and Flask and postgreSQL on the backend to handle data. I made this as many alternatives required a subscription or had to many ads/bloat.",
-            "links": [
-                {
-                    "name": "Github",
-                    "url": "https://github.com/lliamsymonds04/exercise-tracker"
-                },
-                {
-                    "name": "Website",
-                    "url": "https://lliams-exercise-tracker.vercel.app"
-                }
-            ],
-            "image": "https://github.com/lliamsymonds04/exercise-tracker/raw/master/public/example.png"
-        },
-        {
-            "title": "AI Pole Balancer",
-            "description": "Implementation of the classic cart pole machine learning problem in Unity with ML-Agents. Trained using the GPU to keep a pole balanced on top of a moving cart. Additionally made a video, documenting the process and explaining reinforcement learning concepts.",
-            "links": [
-                {
-                    "name": "Github",
-                    "url": "https://github.com/lliamsymonds04/cart-pole-unity"
-                }
-            ],
-            "youtube": "cMeu4qCxjbk"
-        },
-        {
-            "title": "Hand Stem Player",
-            "description": "A stem player is a device that allows you to separate songs into 'stems' and control them. This project is written in Python and uses OpenCV and Mediapipe to track the hands. Pinching the fingers allows you to control the stem volumes. This stem player supports isolating bass, drums, vocals and backing audio and is seperated using Demucs by Meta",
-            "links": [
-                {
-                    "name": "Github",
-                    "url": "https://github.com/lliamsymonds04/HandStemPlayer"
-                }
-            ],
-            "youtube": "NQgYAUxvRFQ"
-        },
-        {
-            "title": "Walker AI",
-            "description": "A 2D bipedial walker that uses the NEAT genetic algorithm to learn how to walk. The NEAT algorithm was written from scratch following the relevant paper. It is written in Typescript, uses Matter.js for physics and pixiJS for rendering. The walker is trained in the browser and can be run on any device with a web browser.",
-            "links": [
-                {
-                    "name": "Github",
-                    "url": "https://github.com/lliamsymonds04/walker-ai"
-                },
-                {
-                    "name": "Website",
-                    "url": "https://walker-ai.vercel.app/"
-                }
-            ],
-            "image": "https://github.com/lliamsymonds04/walker-ai/raw/main/public/assets/PortfolioImage.png"
-        },
-        {
-            "title": "Pool Shot Calculator",
-            "description": "A pool shot calculator that uses computer vision to calculate the best shot to take in a game of pool. It uses Python and OpenCV to find the pool table and balls, and then calculates the best shot to take based on the positions of the balls.",
-            "links": [
-                {
-                    "name": "Github",
-                    "url": "https://github.com/lliamsymonds04/pool-shot-predictor"
-                }
-            ],
-            "youtube": "5Lc4tfRdDl0"
-        },
-        {
-            "title": "Unemployment Rate Predictor",
-            "description": "This project uses a LSTM neural network to predict the unemployment rate in Australia. The data is from the ABS and is trained on the unemployment, inflation and interest rate from 1991 to 2025. The model is written in Python and uses Pytorch and flask on the backend. The content was dockerized and runs on Google Cloud Run.",
-            "links": [
-                {
-                    "name": "Github",
-                    "url": "https://github.com/lliamsymonds04/forecasting-unemployment"
-                },
-                {
-                    "name": "Website",
-                    "url": "https://forecasting-unemployment.vercel.app/"
-                }
-            ],
-            "image": "https://github.com/lliamsymonds04/forecasting-unemployment/raw/main/public/ExampleImage.png"
-        },
-        {
-            "title": "Macro AI",
-            "description": "Another interest of mine is health and fitness. This project uses ChatGPT API to give an estimate of calories and protein from a description or an image of a meal. This project was also my first React app. Test with the website out below!",
-            "links": [
-                {
-                    "name": "Github",
-                    "url": "https://github.com/lliamsymonds04/macro-ai"
-                },
-                {
-                    "name": "Website",
-                    "url": "https://macro-ai.netlify.app/"
-                }
-            ],
-            "gif": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNW51OXVnZHNjOGUzNWRpaGp0M3diamRpM3V3ZTRmY3RiZHZoZWtoOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XcgD12iKPtDT199X4y/giphy.gif"
-        },
-        {
-            "title": "Soften Music",
-            "description": "A program i made with C# and Dotnet that turns down spotify volume when a video starts playing. I made this as I often watch videos while listening to music and it was annoying to have to turn down the music volume every time. It uses the NAudio and Windows Media Control Interface to control the volume.",
-            "links": [
-                {
-                    "name": "Github",
-                    "url": "https://github.com/lliamsymonds04/macro-ai"
-                }
-            ]
-        },
-        {
-            "title": "Spotify CD Visualiser",
-            "description": "I made this spotify visualiser with React and the Spotify API. It displays the users current song and queue as CDs, animating the currently playing CD. The website hosting doesn't work for other users as spotify won't take my API out of dev mode but it's still cool :)",
-            "links": [
-                {
-                    "name": "Github",
-                    "url": "https://github.com/lliamsymonds04/cd-player"
-                },
-                {
-                    "name": "Website",
-                    "url": "https://playcds.netlify.app/"
-                }
-            ],
-            "image": "https://github.com/lliamsymonds04/cd-player/raw/master/public/ExampleImage.png"
-        },
-        {
-            "title": "Gesture Controlled Mouse",
-            "description": "I was really interested in ways to interact with computers through physical means. So, using hand tracking and a webcam, I made it so you can control the mouse by moving your hand and click with your fingers. Written in python and uses OpenCV and Mediapipe.",
-            "links": [
-                {
-                    "name": "Github",
-                    "url": "https://github.com/lliamsymonds04/GestureMouse"
-                }
-            ],
-            "youtube": "_TF5U_LJeq8"
+          "name": "Website",
+          "url": "https://customer-support-bot-lliam.vercel.app/"
         }
-    ]
+      ],
+      "image": "https://github.com/lliamsymonds04/customer-support-bot/raw/main/frontend/public/example.png"
+    },
+    {
+      "title": "Brisbane Public Transport App",
+      "description": "A fullstack application to view public transport information for Brisbane, Australia. It uses Express and Node.js for the backend and Svelte for the frontend. I was sick of React and its Virtual DOM so I went with Svelte as it is compiled. The website fetches data from the Translink API to show real-time bus, train and ferry information. It uses the google routes API to get directions between locations using public transport",
+      "links": [
+        {
+          "name": "Github",
+          "url": "https://github.com/lliamsymonds04/bne-transport"
+        },
+        {
+          "name": "Website",
+          "url": "https://bne-transport.vercel.app/"
+        }
+      ],
+      "image": "https://github.com/lliamsymonds04/bne-transport/raw/main/assets/website-screenshot.png"
+    },
+    {
+      "title": "Inventory Management System",
+      "description": "A fullstack application to manage inventory for a small business. It uses C# and .NET 9 and Entity Framework for the backend and React with Next.js for the frontend. It allows users to add, edit and delete items, as well as view stock levels and stock logs. It is hosted on Azure with a app service and a SQL server.",
+      "links": [
+        {
+          "name": "Github",
+          "url": "https://github.com/lliamsymonds04/inventory-api"
+        },
+        {
+          "name": "Website",
+          "url": "https://inventory-viewer-lliam.vercel.app/"
+        }
+      ]
+    },
+    {
+      "title": "Exercise Tracker",
+      "description": "A fullstack no-frills exercise tracker i made for myself. It uses react for the front end and Flask and postgreSQL on the backend to handle data. I made this as many alternatives required a subscription or had to many ads/bloat.",
+      "links": [
+        {
+          "name": "Github",
+          "url": "https://github.com/lliamsymonds04/exercise-tracker"
+        },
+        {
+          "name": "Website",
+          "url": "https://lliams-exercise-tracker.vercel.app"
+        }
+      ],
+      "image": "https://github.com/lliamsymonds04/exercise-tracker/raw/master/public/example.png"
+    },
+    {
+      "title": "AI Pole Balancer",
+      "description": "Implementation of the classic cart pole machine learning problem in Unity with ML-Agents. Trained using the GPU to keep a pole balanced on top of a moving cart. Additionally made a video, documenting the process and explaining reinforcement learning concepts.",
+      "links": [
+        {
+          "name": "Github",
+          "url": "https://github.com/lliamsymonds04/cart-pole-unity"
+        }
+      ],
+      "youtube": "cMeu4qCxjbk"
+    },
+    {
+      "title": "Hand Stem Player",
+      "description": "A stem player is a device that allows you to separate songs into 'stems' and control them. This project is written in Python and uses OpenCV and Mediapipe to track the hands. Pinching the fingers allows you to control the stem volumes. This stem player supports isolating bass, drums, vocals and backing audio and is seperated using Demucs by Meta",
+      "links": [
+        {
+          "name": "Github",
+          "url": "https://github.com/lliamsymonds04/HandStemPlayer"
+        }
+      ],
+      "youtube": "NQgYAUxvRFQ"
+    },
+    {
+      "title": "Walker AI",
+      "description": "A 2D bipedial walker that uses the NEAT genetic algorithm to learn how to walk. The NEAT algorithm was written from scratch following the relevant paper. It is written in Typescript, uses Matter.js for physics and pixiJS for rendering. The walker is trained in the browser and can be run on any device with a web browser.",
+      "links": [
+        {
+          "name": "Github",
+          "url": "https://github.com/lliamsymonds04/walker-ai"
+        },
+        {
+          "name": "Website",
+          "url": "https://walker-ai.vercel.app/"
+        }
+      ],
+      "image": "https://github.com/lliamsymonds04/walker-ai/raw/main/public/assets/PortfolioImage.png"
+    },
+    {
+      "title": "Pool Shot Calculator",
+      "description": "A pool shot calculator that uses computer vision to calculate the best shot to take in a game of pool. It uses Python and OpenCV to find the pool table and balls, and then calculates the best shot to take based on the positions of the balls.",
+      "links": [
+        {
+          "name": "Github",
+          "url": "https://github.com/lliamsymonds04/pool-shot-predictor"
+        }
+      ],
+      "youtube": "5Lc4tfRdDl0"
+    },
+    {
+      "title": "Unemployment Rate Predictor",
+      "description": "This project uses a LSTM neural network to predict the unemployment rate in Australia. The data is from the ABS and is trained on the unemployment, inflation and interest rate from 1991 to 2025. The model is written in Python and uses Pytorch and flask on the backend. The content was dockerized and runs on Google Cloud Run.",
+      "links": [
+        {
+          "name": "Github",
+          "url": "https://github.com/lliamsymonds04/forecasting-unemployment"
+        },
+        {
+          "name": "Website",
+          "url": "https://forecasting-unemployment.vercel.app/"
+        }
+      ],
+      "image": "https://github.com/lliamsymonds04/forecasting-unemployment/raw/main/public/ExampleImage.png"
+    },
+    {
+      "title": "Macro AI",
+      "description": "Another interest of mine is health and fitness. This project uses ChatGPT API to give an estimate of calories and protein from a description or an image of a meal. This project was also my first React app. Test with the website out below!",
+      "links": [
+        {
+          "name": "Github",
+          "url": "https://github.com/lliamsymonds04/macro-ai"
+        },
+        {
+          "name": "Website",
+          "url": "https://macro-ai.netlify.app/"
+        }
+      ],
+      "gif": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNW51OXVnZHNjOGUzNWRpaGp0M3diamRpM3V3ZTRmY3RiZHZoZWtoOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XcgD12iKPtDT199X4y/giphy.gif"
+    },
+    {
+      "title": "Soften Music",
+      "description": "A program i made with C# and Dotnet that turns down spotify volume when a video starts playing. I made this as I often watch videos while listening to music and it was annoying to have to turn down the music volume every time. It uses the NAudio and Windows Media Control Interface to control the volume.",
+      "links": [
+        {
+          "name": "Github",
+          "url": "https://github.com/lliamsymonds04/macro-ai"
+        }
+      ]
+    },
+    {
+      "title": "Spotify CD Visualiser",
+      "description": "I made this spotify visualiser with React and the Spotify API. It displays the users current song and queue as CDs, animating the currently playing CD. The website hosting doesn't work for other users as spotify won't take my API out of dev mode but it's still cool :)",
+      "links": [
+        {
+          "name": "Github",
+          "url": "https://github.com/lliamsymonds04/cd-player"
+        },
+        {
+          "name": "Website",
+          "url": "https://playcds.netlify.app/"
+        }
+      ],
+      "image": "https://github.com/lliamsymonds04/cd-player/raw/master/public/ExampleImage.png"
+    },
+    {
+      "title": "Gesture Controlled Mouse",
+      "description": "I was really interested in ways to interact with computers through physical means. So, using hand tracking and a webcam, I made it so you can control the mouse by moving your hand and click with your fingers. Written in python and uses OpenCV and Mediapipe.",
+      "links": [
+        {
+          "name": "Github",
+          "url": "https://github.com/lliamsymonds04/GestureMouse"
+        }
+      ],
+      "youtube": "_TF5U_LJeq8"
+    }
+  ]
 }
