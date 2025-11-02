@@ -1,4 +1,26 @@
 {
-    "skills": ["Typescript", "C#", "Python", "React", ".NET", "HTML", "CSS", 
-        "Tailwind", "SQL", "Git", "Docker", "RESTful APIs", "Pandas", "NumPy", "TensorFlow", "PyTorch", "Azure", "AWS", "Redis"]
+  "skills": [
+    "Typescript",
+    "C#",
+    "Python",
+    "React",
+    ".NET",
+    "HTML",
+    "CSS",
+    "Svelte",
+    "Linux",
+    "Tailwind",
+    "SQL",
+    "Git",
+    "Docker",
+    "RESTful APIs",
+    "Pandas",
+    "NumPy",
+    "PyTorch",
+    "Azure",
+    "AWS",
+    "Redis",
+    "Vim"
+  ]
 }
+
