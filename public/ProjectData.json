@@ -16,6 +16,21 @@
       "image": "https://github.com/lliamsymonds04/customer-support-bot/raw/main/frontend/public/example.png"
     },
     {
+      "title": "Trailrunners",
+      "description": "My capstone project at UQ. Worked in a team of 6 in an Agile environment to develop an application to track trail runners with prevision and accuracy for Olympic level. Uses LiDAR and GPS data to track and graph trails. Working with UQ Health, we provided insights to runners on trail difficulty, gradients, and trail sections. I specifically worked on processing the streams of data and implementing the API with FastAPI.",
+      "links": [
+        {
+          "name": "Github",
+          "url": "https://github.com/justjeromey/DECO3801-RuntimeTerror"
+        },
+        {
+          "name": "Website",
+          "url": "https://runtimeterror.uqcloud.net/"
+        }
+      ],
+      "image": "public/screenshots/trailrunners.png"
+    },
+    {
       "title": "Brisbane Public Transport App",
       "description": "A fullstack application to view public transport information for Brisbane, Australia. It uses Express and Node.js for the backend and Svelte for the frontend. I was sick of React and its Virtual DOM so I went with Svelte as it is compiled. The website fetches data from the Translink API to show real-time bus, train and ferry information. It uses the google routes API to get directions between locations using public transport",
       "links": [
