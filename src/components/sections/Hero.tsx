@@ -48,7 +48,7 @@ export default function Hero() {
               >
                 Suncorp
               </a>{" "}
-              building AI systems for insurance claims in production — based in{" "}
+              building AI systems for insurance claims in production. Based in{" "}
               {profile.location}.
             </p>
 

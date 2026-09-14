@@ -22,9 +22,9 @@ export default function About() {
             Suncorp
           </a>
           , where I build the AI systems that assess insurance claims in
-          production — LLM orchestration, agent tooling and the pipeline that
-          turns a lodged claim into an assessed, allocated one in minutes
-          instead of days.
+          production. That covers LLM orchestration, agent tooling, and the
+          pipeline that takes a claim from lodged to assessed and allocated in
+          minutes instead of days.
         </p>
         <p>
           Outside work I'm always building something: machine learning
@@ -38,7 +38,7 @@ export default function About() {
           >
             Godot
           </a>{" "}
-          — small games, mostly for the fun of watching physics misbehave.
+          making small games, mostly for the fun of watching physics misbehave.
         </p>
         </div>
       </Reveal>

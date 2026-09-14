@@ -18,9 +18,9 @@ export const experience: ExperienceEntry[] = [
     summary:
       "Post-lodgement claims processing at the assessment-to-allocation boundary: new claim assessment, makesafe dispatch and builder assignment, all in production.",
     bullets: [
-      "Built an AI orchestrator that automates post-lodgement claim assessment in production — new claim assessment, makesafe dispatch and builder allocation — running across the ~200 open home claims a day.",
+      "Built an AI orchestrator that automates post-lodgement claim assessment in production, covering new claim assessment, makesafe dispatch and builder allocation across the ~200 open home claims a day.",
       "Cut the median claim assessment from multiple days to about five minutes by removing the queueing and hand-off delays that previously parked claims awaiting an assessor, then awaiting allocation.",
-      "Delivered LLM-backed claim summarisation and review that passed Suncorp's risk and compliance review — the gate that stops most LLM work in a regulated insurer from shipping.",
+      "Delivered LLM-backed claim summarisation and review that passed Suncorp's risk and compliance review, which stops most LLM work at a regulated insurer from ever shipping.",
     ],
     stack: ["Python", "UiPath", "LLMs", "PostgreSQL"],
     link: "https://www.suncorp.com.au/",
@@ -37,7 +37,7 @@ export const experience: ExperienceEntry[] = [
     bullets: [
       "Delivered a content management library letting employers assign training to their staff, with AI generating onboarding documents.",
       "Shipped in Ruby on Rails on a small team against a deliberately short delivery window.",
-      "Worked against a production PostgreSQL database holding customer data across three regions — Australia, the US and Europe.",
+      "Worked against a production PostgreSQL database holding customer data across three regions: Australia, the US and Europe.",
     ],
     stack: ["Ruby", "Ruby on Rails", "PostgreSQL"],
   },
@@ -55,6 +55,6 @@ export const education: EducationEntry[] = [
     start: "2023",
     end: "2025",
     location: "Brisbane",
-    detail: "Capstone: Trailrunners — see the Projects tab.",
+    detail: "Capstone: Trailrunners (see the Projects tab).",
   },
 ];

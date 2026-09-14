@@ -85,7 +85,7 @@ function Tier1Card({ project, index }: { project: Project; index: number }) {
 
           {project.private && (
             <p className="mt-3 text-sm text-muted">
-              Runs on a private network — not publicly reachable, by design.
+              Runs on a private network and isn't reachable from the internet.
             </p>
           )}
 

@@ -50,7 +50,7 @@ export default function SiteFooter() {
         </h2>
         <p className="mt-3 max-w-[60ch] text-muted">
           I'm always happy to talk about software engineering, machine learning,
-          or anything on this page — my inbox is open.
+          or anything on this page. My inbox is open.
         </p>
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -87,7 +87,7 @@ export default function SiteFooter() {
           <p className="mt-8 text-sm text-muted">
             Now playing:{" "}
             <span className="italic text-text">{song.trackName}</span>
-            {" — "}
+            {" by "}
             <span className="italic text-text">{song.artist}</span>
           </p>
         )}

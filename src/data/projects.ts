@@ -97,7 +97,7 @@ export const projects: Project[] = [
     tier: 1,
     year: "2025",
     blurb:
-      "A 2D bipedal walker that learns to walk with the NEAT genetic algorithm — written from scratch from the paper, not pulled from a library. TypeScript, Matter.js for physics, pixiJS for rendering; it trains in the browser and runs on any device with a web browser.",
+      "A 2D bipedal walker that learns to walk with the NEAT genetic algorithm, written from scratch from the paper rather than pulled from a library. TypeScript, Matter.js for physics, pixiJS for rendering; it trains in the browser and runs on any device with a web browser.",
     oneLiner: "",
     stack: ["TypeScript", "NEAT", "Matter.js", "pixiJS"],
     links: [
@@ -116,7 +116,7 @@ export const projects: Project[] = [
     tier: 1,
     year: "2025",
     blurb:
-      "Fullstack Brisbane transport app: Express/Node.js backend with a Svelte frontend — Svelte compiles rather than shipping a virtual DOM, which keeps the client bundle small. Pulls real-time bus, train and ferry data from the Translink API, with the Google Routes API for directions.",
+      "Fullstack Brisbane transport app: Express/Node.js backend with a Svelte frontend. Svelte compiles rather than shipping a virtual DOM, which keeps the client bundle small. Pulls real-time bus, train and ferry data from the Translink API, with the Google Routes API for directions.",
     oneLiner: "",
     stack: ["Svelte", "Node.js", "Express", "Translink API", "Google Routes API"],
     links: [
@@ -135,7 +135,7 @@ export const projects: Project[] = [
     tier: 1,
     year: "Ongoing",
     blurb:
-      "A 15-service platform on a Ryzen-based Linux host, up 125 days and counting: Jellyfin for media, Home Assistant with a Matter server for the smart home, SearXNG for private search, Calibre-Web, and a Homepage dashboard tying it together. Every service is served over real, browser-trusted HTTPS despite having no public DNS record — a custom Caddy build with the Cloudflare DNS plugin issues and auto-renews Let's Encrypt certificates via the DNS-01 challenge, the only ACME method that works for hosts that aren't internet-reachable.",
+      "A 15-service platform on a Ryzen-based Linux host, up 125 days and counting: Jellyfin for media, Home Assistant with a Matter server for the smart home, SearXNG for private search, Calibre-Web, and a Homepage dashboard tying it together. Every service gets real, browser-trusted HTTPS even though the host has no public DNS record: a custom Caddy build with the Cloudflare DNS plugin issues and auto-renews Let's Encrypt certificates over the DNS-01 challenge, the only ACME method that works for hosts that aren't reachable from the internet.",
     oneLiner: "",
     stack: [
       "Linux",
