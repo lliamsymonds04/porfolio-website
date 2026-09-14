@@ -23,7 +23,7 @@ export default function Hero() {
         className="pointer-events-none absolute top-[-12rem] right-[-8rem] hidden h-[36rem] w-[36rem] rounded-full bg-accent/10 blur-3xl lg:block"
       />
 
-      <div className="mx-auto w-full max-w-[72rem] px-6 pt-16 pb-20 md:px-8 md:pt-24 md:pb-28">
+      <div className="mx-auto w-full max-w-[72rem] px-6 pt-16 pb-12 md:px-8 md:pt-24 md:pb-16">
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:gap-16">
           {/* Copy column */}
           <div className="flex flex-col items-start">

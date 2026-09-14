@@ -11,9 +11,9 @@ import { CloseIcon, MenuIcon, DownloadIcon } from "../icons";
  * on desktop and in the mobile sheet so no surface dead-links.
  */
 const NAV_ITEMS = [
-  { id: "about", label: "About" },
   { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
+  { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
   { id: "contact", label: "Contact" },
   // #experience and #projects both live in the WorkTabs section (Phase 6):

@@ -3,8 +3,8 @@ import { Reveal } from "../ui/Reveal";
 
 /**
  * About (§4) — the "About/Now" block: 2–3 sentences on what I do now, what
- * I'm building, what I'm into. Sits between the hero and the WorkTabs
- * section; joins the header nav in Phase 6 when Experience lands.
+ * I'm building, what I'm into. Sits below the WorkTabs section; joins the
+ * header nav in Phase 6 when Experience lands.
  */
 export default function About() {
   return (

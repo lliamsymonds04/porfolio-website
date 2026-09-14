@@ -1,8 +1,8 @@
 import SiteHeader from "./components/layout/SiteHeader";
 import SiteFooter from "./components/layout/SiteFooter";
 import Hero from "./components/sections/Hero";
-import About from "./components/sections/About";
 import { Section } from "./components/layout/Section";
+import About from "./components/sections/About";
 import WorkTabs from "./components/sections/WorkTabs";
 import SkillsPanel from "./components/sections/SkillsPanel";
 
@@ -24,11 +24,13 @@ const App = () => {
 
       <main id="main">
         <Hero />
-        <About />
 
         {/* WorkTabs (Phase 6): the Experience | Projects switcher — the
-            #experience / #projects anchors both resolve inside it. */}
+            #experience / #projects anchors both resolve inside it. Sits above
+            About so the proof of work is front-loaded for recruiters. */}
         <WorkTabs />
+
+        <About />
 
         <Section id="skills" lead="What I" rest="work with" className="py-16 md:py-24">
           <SkillsPanel />

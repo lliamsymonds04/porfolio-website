@@ -38,7 +38,7 @@ export default function WorkTabs() {
       id="experience"
       lead={isExperience ? "Where I've" : "What I've"}
       rest={isExperience ? "worked" : "built"}
-      className="py-16 md:py-24"
+      className="pt-10 pb-16 md:pt-14 md:pb-24"
     >
       {/*
         Deep-link target for "#projects": sits at the tab row, and the
