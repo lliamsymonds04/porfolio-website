@@ -1,49 +1,45 @@
-import { useEffect, useState } from "react";
-import YouTube from 'react-youtube';
+import YouTube from "react-youtube";
 
 import MyProjectsTag from "./MyProjectsTag";
 import LinkButton from "./LinkButton";
 
+import { featuredProjects, tileProjects } from "../data/projects";
+import type { Project, ProjectLink } from "../types/content";
+
+/**
+ * INTERIM — consumed the typed data layer in Phase 3; this component is
+ * replaced by ProjectsPanel (tier-1 cards + tier-2 tiles) in Phase 6.
+ * It flattens both tiers into the old single-column card list so the site
+ * keeps rendering while the shell is rebuilt.
+ */
 const LinkImages: { [key: string]: string } = {
-    "Github": "https://img.icons8.com/ios11/512/FFFFFF/github.png",
-    "Website": "https://img.icons8.com/?size=100&id=69543&format=png&color=FFFFFF"
-}
+    GitHub: "https://img.icons8.com/ios11/512/FFFFFF/github.png",
+    Website: "https://img.icons8.com/?size=100&id=69543&format=png&color=FFFFFF",
+};
 
-type ProjectProps = {
-    title: string,
-    description: string,
-    links: { name: string; url: string; }[],
-    image?: string,
-    youtube?: string,
-    gif?: string,
-}
-
-type ProjectDataProps = {
-    projects: ProjectProps[]
-}
-
-function MediaFrame({data}: {data: ProjectProps}) {
-    let imgSrc: string | null = null
-    if (data.gif) {
-        imgSrc = data.gif
-    } else if (data.image) {
-        imgSrc = data.image
+function youtubeId(url: string): string | null {
+    try {
+        const parsed = new URL(url);
+        return parsed.searchParams.get("v");
+    } catch {
+        return null;
     }
+}
 
-    let webLink = "null"
-    data.links.forEach(link => {
-        if (link.name === "Website") {
-            webLink = link.url
-        }
-    })
+function MediaFrame({ project }: { project: Project }) {
+    const webLink = project.links.find((l) => l.name === "Website")?.url;
+    const video = project.links.find((l) => l.name === "Video");
+    const videoId = video ? youtubeId(video.url) : null;
 
     return (
         <div className="flex w-full h-auto">
-            {imgSrc && (
-                <a href={webLink} target="_blank" rel="noreferrer" title={data.title} className="bottom-0 flex">
+            {project.media && webLink && (
+                <a href={webLink} target="_blank" rel="noreferrer" title={project.title} className="bottom-0 flex">
                     <img
-                        src={imgSrc}
-                        alt="example"
+                        src={project.media.src}
+                        alt={project.media.alt}
+                        width={project.media.width}
+                        height={project.media.height}
                         style={{
                             width: "100%",
                             height: "auto",
@@ -52,13 +48,13 @@ function MediaFrame({data}: {data: ProjectProps}) {
                     />
                 </a>
             )}
-            
-            {data.youtube && (
+
+            {videoId && (
                 <div className="relative w-full pb-[56.25%] h-0 overflow-hidden rounded-lg">
                     <div className="absolute top-0 left-0 w-full h-full">
                         <YouTube
-                            videoId={data.youtube}
-                            title={data.title}
+                            videoId={videoId}
+                            title={project.title}
                             className="w-full h-full"
                             opts={{
                                 width: "100%",
@@ -73,7 +69,7 @@ function MediaFrame({data}: {data: ProjectProps}) {
                 </div>
             )}
         </div>
-    )
+    );
 }
 
 function Dots({ count }: { count: number }) {
@@ -86,52 +82,53 @@ function Dots({ count }: { count: number }) {
     );
 }
 
-function ProjectCard({ data }: { data: ProjectProps }) {
+function LinkRow({ links }: { links: ProjectLink[] }) {
+    if (links.length === 0) return null; // §6.5: no empty link row
+    return (
+        <div className="flex flex-row gap-2 align-center justify-center">
+            {links.map((link, index) => (
+                <LinkButton
+                    key={index}
+                    title={link.name}
+                    link={link.url}
+                    size={12}
+                    imgSrc={LinkImages[link.name] || ""}
+                />
+            ))}
+        </div>
+    );
+}
+
+function ProjectCard({ project }: { project: Project }) {
     return (
         <div className="w-[85%] max-w-[40rem] mb-10">
-            <h1 className="text-4xl font-bold mb-2">{data.title}</h1>
-            <MediaFrame data={data} />
-            <p className="text-lg mb-4">{data.description}</p>
+            <h1 className="text-4xl font-bold mb-2">{project.title}</h1>
+            <MediaFrame project={project} />
+            <p className="text-lg mb-4">{project.blurb || project.oneLiner}</p>
 
-            <div className="flex flex-row gap-2 align-center justify-center">
-                {data.links.map((link, index) => (
-                    <LinkButton
-                        key={index}
-                        title={link.name}
-                        link={link.url}
-                        size={12}
-                        imgSrc={LinkImages[link.name] || ""}
-                    />
-                ))}
-            </div>
+            <LinkRow links={project.links} />
+            {project.private && (
+                <p className="text-sm text-muted text-center">
+                    Runs on a private network — not publicly reachable.
+                </p>
+            )}
             <Dots count={5} />
         </div>
-    )
+    );
 }
 
 function Projects() {
-    const [projectData, setProjectData] = useState<ProjectDataProps>({projects: []});
-
-    useEffect(() => {
-        fetch("/ProjectData.json")
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            return response.json();
-        })
-        .then((jsonData) => setProjectData(jsonData))
-        .catch((error) => console.error("Error fetching the JSON:", error));
-    }, []);
     return (
         <div className="flex flex-col items-center justify-center w-full h-auto">
             <MyProjectsTag />
-            {projectData.projects.map((data, index) => (
-                <ProjectCard key={index} data={data}/>
+            {featuredProjects.map((project) => (
+                <ProjectCard key={project.title} project={project} />
+            ))}
+            {tileProjects.map((project) => (
+                <ProjectCard key={project.title} project={project} />
             ))}
         </div>
-    )
-
+    );
 }
 
 export default Projects;

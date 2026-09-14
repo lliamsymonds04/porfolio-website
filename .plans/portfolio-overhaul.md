@@ -713,9 +713,13 @@ README.md            → correct the deploy URL, contact email (currently a plac
 - **Accept for:** zero hardcoded hex values outside `src/index.css`; contrast table all-pass in both themes. **← met**
 - *Implementation note:* the plan's `--glow-accent` ships as `--shadow-glow` so it lands in Tailwind v4's `--shadow-*` namespace and gets a `shadow-glow` utility for free.
 
-### Phase 3 — Data layer
-- [ ] `src/types/content.ts`, `src/data/*.ts` per §8.2; delete the JSON files.
-- **Accept for:** `tsc -b` passes; components consume typed data; no runtime fetch for content.
+### Phase 3 — Data layer  **[done]**
+- [x] `src/types/content.ts`, `src/data/*.ts` per §8.2; the JSON files are deleted (`git rm`).
+- [x] Projects data is the confirmed cull (§6): 6 tier-1 cards + 5 tier-2 tiles. Media self-hosted to `public/projects/` early (was due Phase 8) with real measured dimensions, so the data layer shipped complete rather than pointing at raw.githubusercontent hotlinks. Year tags taken from GitHub repo creation dates — none invented. Home Server ships with `media: null` (architecture diagram is Phase 6) and empty `links` with the `private` flag.
+- [x] `Project.blurb` made optional (tier 2 has no card copy) — a deliberate deviation from the §8.2 sketch, which had it required.
+- [x] Interim `Projects.tsx` / `Skills.tsx` consume the typed modules; both still render the old layout and both die in Phases 6/7. The only remaining `fetch` in `src/` is the Last.fm widget (Q6, kept by decision — not content).
+- [x] `public/screenshots/` removed — its only image moved to `public/projects/trailrunners.png`; zero references remain.
+- **Accept for:** `tsc -b` passes; components consume typed data; no runtime fetch for content. **← met**
 
 ### Phase 4 — Shell
 - [ ] `SiteHeader` with active-section tracking and mobile sheet.
@@ -774,6 +778,7 @@ README.md            → correct the deploy URL, contact email (currently a plac
 
 ## 11. Changelog
 
+- **v0.10** — **Phase 3 complete.** Data layer shipped: `src/types/content.ts` (Project / ExperienceEntry / EducationEntry / SkillCluster) plus `src/data/{projects,experience,skills}.ts`; `ProjectData.json` and `SkillsArray.json` deleted, interim `Projects.tsx`/`Skills.tsx` switched to typed imports — zero runtime fetches for content (the Last.fm widget's fetch remains by Q6 decision). Project cull encoded as data: 6 tier-1 + 5 tier-2. Images self-hosted to `public/projects/` with measured dimensions (Phase 8 work pulled forward so the data layer is complete); L10 rewrite (Brisbane Transport no longer vents about React) and L9 typo fixes applied at the source. Year tags from GitHub repo creation dates. Home Server card: empty links + `private` flag, `media: null` pending the Phase 6 diagram. `Project.blurb` made optional (tier-2 deviation from §8.2's sketch, recorded). Skills: 4 clusters + Tools per Phase 7's spec, seeded from the resume — UiPath, LangChain, Ruby/Rails, PostgreSQL added; component regrouping is Phase 7. `tsc -b`, lint and build all pass.
 - **v0.9** — **Phase 2 complete.** `src/index.css` rebuilt as the full token layer: §7.2 green/black `@theme` (neutrals, accents, radius, lift shadow, glow), the light-theme variable swap under `prefers-color-scheme: light`, global `:focus-visible` styling, and the `prefers-reduced-motion` guard (A5's global fix lands here rather than in the Phase 8 motion pass). Light theme re-verified with the WCAG maths — first-pass surface-2 missed the 1.15 non-text minimum and was re-solved to `#DCE9DF`. Every hardcoded hex purged from components (footer, hero variants, project dots, heading colours now resolve through tokens; the amber `#FFBB00`/`#FFC936` retire to `accent`). Inter self-hosted via `@fontsource-variable/inter`; portrait shipped as `public/me/profile.webp` (full 3:4 frame, 2× display size). Build + lint pass; Inter woff2 confirmed self-hosted in `dist/`. Old `PhotoOfMe.jpg` still in place — hero swap and its deletion are Phase 5.
 - **v0.8** — Phase 0 complete; Phase 1 complete; all remaining content answers supplied.
   **Tanda (Q3) closed:** fixed-term internship that concluded naturally; "3 major regions" named as **Australia, the US and Europe** in the bullet. The optional employer-count metric remains the only Tanda item open, and it's optional.
