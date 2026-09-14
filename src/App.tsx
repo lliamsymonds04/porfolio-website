@@ -1,32 +1,43 @@
-import { useEffect } from "react";
-
-import { useCheckMobile } from "./hooks/ScalingHooks"
-
-import Footer from "./components/Footer";
-import MobileLandingPage from "./components/mobile/MobileLandingPage";
-import DesktopLandingPage from "./components/desktop/DesktopLandingPage";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
+import SiteHeader from "./components/layout/SiteHeader";
+import SiteFooter from "./components/layout/SiteFooter";
+import Hero from "./components/sections/Hero";
+import About from "./components/sections/About";
+import { Section } from "./components/layout/Section";
+import WorkTabs from "./components/sections/WorkTabs";
+import SkillsPanel from "./components/sections/SkillsPanel";
 
 const App = () => {
-  const isMobile = useCheckMobile()
-
-  useEffect(() => {
-    document.body.classList.add("overflow-x-hidden");
-    return () => document.body.classList.remove("overflow-x-hidden");
-  }, []);
-
-
   return (
-    <div className="h-auto w-screen min-height-screen">
-      {isMobile ? (
-        <MobileLandingPage />
-      ) : <DesktopLandingPage/>}
-      <Skills/>
-      <Projects/>
-      <Footer/>
-    </div>
-  )
-}
+    <div id="top" className="min-h-screen">
+      {/*
+        Skip link — the first focusable element on the page (§4.2, fixes A2).
+        Visually hidden until focused, then a token-coloured pill top-left.
+      */}
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:font-semibold focus:text-accent-ink"
+      >
+        Skip to content
+      </a>
 
-export default App
+      <SiteHeader />
+
+      <main id="main">
+        <Hero />
+        <About />
+
+        {/* WorkTabs (Phase 6): the Experience | Projects switcher — the
+            #experience / #projects anchors both resolve inside it. */}
+        <WorkTabs />
+
+        <Section id="skills" lead="What I" rest="work with" className="py-16 md:py-24">
+          <SkillsPanel />
+        </Section>
+      </main>
+
+      <SiteFooter />
+    </div>
+  );
+};
+
+export default App;

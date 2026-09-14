@@ -3,13 +3,11 @@ import type { SkillCluster } from "../types/content";
 /**
  * Skills — four grouped clusters (Phase 7 spec), replacing the 21-tag flat
  * list. Every skill on the resume (~/Documents/personal/resume.md) appears
- * exactly once: the resume's Databases and Cloud & DevOps groups fold into
- * "Cloud, Data & Tooling", and low-signal peer items (Vim, Git, HTML, CSS)
- * drop into a trailing Tools cluster. UiPath, LangChain, Ruby/Rails and
- * PostgreSQL come in from the resume; the old flat list never had them.
- *
- * The cluster *component* (grouped layout) is Phase 7; interim Skills.tsx
- * flattens this and renders the same token chips.
+ * Every skill on the resume (~/Documents/personal/resume.md) appears
+ * exactly once — including Signal Processing (the resume's Specialized
+ * group), which the first pass missed. The resume's Databases and Cloud &
+ * DevOps groups fold into "Cloud, Data & Tooling", and low-signal peer
+ * items (Vim, Git, HTML, CSS) drop into a trailing Tools cluster.
  */
 export const skills: SkillCluster[] = [
   {
@@ -45,6 +43,7 @@ export const skills: SkillCluster[] = [
       "Computer Vision",
       "Reinforcement Learning",
       "Natural Language Processing",
+      "Signal Processing",
     ],
   },
   {

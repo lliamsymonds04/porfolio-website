@@ -69,6 +69,11 @@ body {
   @apply bg-bg text-text font-sans antialiased;
 }
 
+/* Smooth anchor scrolling (§7.6); the reduced-motion guard below resets it. */
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   color-scheme: dark;
 }

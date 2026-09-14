@@ -40,7 +40,7 @@ export const projects: Project[] = [
       },
     ],
     media: {
-      src: "/projects/customer-support-bot.png",
+      src: "/projects/customer-support-bot.webp",
       alt: "Customer Support Bot web interface showing logged forms",
       width: 602,
       height: 361,
@@ -61,10 +61,10 @@ export const projects: Project[] = [
       },
     ],
     media: {
-      src: "/projects/trailrunners.png",
+      src: "/projects/trailrunners.webp",
       alt: "Trailrunners application showing a tracked trail run",
-      width: 1245,
-      height: 799,
+      width: 1200,
+      height: 770,
     },
   },
   {
@@ -86,10 +86,10 @@ export const projects: Project[] = [
       },
     ],
     media: {
-      src: "/projects/unemployment-predictor.png",
+      src: "/projects/unemployment-predictor.webp",
       alt: "Unemployment Rate Predictor showing forecast output",
-      width: 2007,
-      height: 992,
+      width: 1200,
+      height: 593,
     },
   },
   {
@@ -105,7 +105,7 @@ export const projects: Project[] = [
       { name: "Website", url: "https://walker-ai.vercel.app/" },
     ],
     media: {
-      src: "/projects/walker-ai.png",
+      src: "/projects/walker-ai.webp",
       alt: "Walker AI browser interface showing a bipedal walker mid-training",
       width: 499,
       height: 372,
@@ -124,10 +124,10 @@ export const projects: Project[] = [
       { name: "Website", url: "https://bne-transport.vercel.app/" },
     ],
     media: {
-      src: "/projects/bne-transport.png",
+      src: "/projects/bne-transport.webp",
       alt: "Brisbane Public Transport App showing real-time departures",
-      width: 2324,
-      height: 1330,
+      width: 1200,
+      height: 687,
     },
   },
   {
@@ -152,7 +152,12 @@ export const projects: Project[] = [
       "systemd",
     ],
     links: [], // private by design (§6.5) — no empty link row
-    media: null, // architecture diagram is built in Phase 6
+    media: {
+      src: "/projects/home-server-diagram.svg",
+      alt: "Architecture diagram: visitors connect over HTTPS to Caddy, which reverse-proxies 15 Docker Compose services on a Ubuntu host (Ryzen 5 5600G, up 125 days); Let's Encrypt certificates are issued via the Cloudflare DNS-01 challenge; data volumes with a shared data tree and ~124 GB of media sit alongside the containers.",
+      width: 1040,
+      height: 660,
+    },
     private: true,
   },
 

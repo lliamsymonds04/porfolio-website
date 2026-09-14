@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lliam Symonds — Resume</title>
+<style>
+  /* A4 print sheet, Inter (falls back to system sans in the PDF renderer),
+     green-accented to match the site. Contact details deliberately exclude
+     phone and street address (Phase 5 decision) — email, location, LinkedIn,
+     GitHub only. */
+  @page { size: A4; margin: 14mm 15mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "Inter Variable", "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 9.6pt;
+    line-height: 1.45;
+    color: #1a231e;
+    margin: 0;
+  }
+  a { color: #12663a; text-decoration: none; }
+  header { border-bottom: 2.5px solid #12663a; padding-bottom: 8pt; margin-bottom: 10pt; }
+  h1 { font-size: 21pt; margin: 0; letter-spacing: -0.3pt; }
+  .subtitle { font-size: 10.5pt; font-weight: 600; color: #12663a; margin-top: 2pt; }
+  .contact { font-size: 8.6pt; color: #44554c; margin-top: 4pt; }
+  .contact span + span::before { content: "·"; margin: 0 5pt; color: #9dbfa9; }
+  h2 {
+    font-size: 10.5pt; text-transform: uppercase; letter-spacing: 1pt;
+    color: #12663a; margin: 12pt 0 4pt; border-bottom: 0.75pt solid #c4d6ca; padding-bottom: 2pt;
+  }
+  .entry { margin-bottom: 7pt; }
+  .entry-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .entry-title { font-size: 10.3pt; font-weight: 700; }
+  .entry-title .light { font-weight: 400; color: #44554c; }
+  .entry-dates { font-size: 8.6pt; color: #44554c; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .entry-sub { font-size: 8.8pt; color: #44554c; font-style: italic; }
+  ul { margin: 3pt 0 0; padding-left: 14pt; }
+  li { margin-bottom: 2pt; }
+  .skills p { margin: 2.5pt 0; }
+  .skills b { color: #1a231e; }
+  .summary { margin: 0 0 4pt; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Lliam Symonds</h1>
+  <div class="subtitle">Software Engineer</div>
+  <div class="contact">
+    <span>Brisbane, Australia</span>
+    <span><a href="mailto:lliamsymonds04@gmail.com">lliamsymonds04@gmail.com</a></span>
+    <span><a href="https://www.linkedin.com/in/lliam-symonds/">linkedin.com/in/lliam-symonds</a></span>
+    <span><a href="https://github.com/lliamsymonds04">github.com/lliamsymonds04</a></span>
+  </div>
+</header>
+
+<p class="summary">
+  Computer Science graduate from the University of Queensland (2025) with a major in Machine
+  Learning. Experienced in fullstack development and AI/ML engineering through various roles.
+  Strong background in building intelligent systems, from AI orchestrators for insurance claims
+  processing to content management systems with AI-powered onboarding. Passionate about leveraging
+  machine learning and modern web technologies to solve real-world problems.
+</p>
+
+<h2>Work Experience</h2>
+
+<div class="entry">
+  <div class="entry-head">
+    <div class="entry-title">Software Engineer <span class="light">— Suncorp</span></div>
+    <div class="entry-dates">Jan 2026 – Present</div>
+  </div>
+  <div class="entry-sub">Intelligent Solution Developer (contractual title) · Full-time · Brisbane (Hybrid)</div>
+  <ul>
+    <li>Built an AI orchestrator that automates post-lodgement claim assessment in production — new claim assessment, makesafe dispatch and builder allocation — running across the entire open book of ~200 housing claims.</li>
+    <li>Cut the median claim assessment from multiple days to about five minutes by removing the queueing and hand-off delays that previously parked claims awaiting an assessor, then awaiting allocation.</li>
+    <li>Delivered LLM-backed claim summarisation and review that passed Suncorp's risk and compliance review — the gate that stops most LLM work in a regulated insurer from shipping.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="entry-head">
+    <div class="entry-title">Software Engineering Intern <span class="light">— Tanda</span></div>
+    <div class="entry-dates">Dec 2025 – Jan 2026</div>
+  </div>
+  <div class="entry-sub">Fixed-term internship · Brisbane</div>
+  <ul>
+    <li>Delivered a content management library letting employers assign training to their staff, with AI generating onboarding documents.</li>
+    <li>Shipped in Ruby on Rails on a small team against a deliberately short delivery window.</li>
+    <li>Worked against a production PostgreSQL database holding customer data across three regions — Australia, the US and Europe.</li>
+  </ul>
+</div>
+
+<h2>Education</h2>
+
+<div class="entry">
+  <div class="entry-head">
+    <div class="entry-title">Bachelor of Computer Science <span class="light">— University of Queensland</span></div>
+    <div class="entry-dates">2023 – 2025</div>
+  </div>
+  <div class="entry-sub">Major in Machine Learning · Brisbane</div>
+  <ul>
+    <li>Capstone: Trailrunners — a trail runner tracking application processing LiDAR and GPS data, built by a team of six in Agile for UQ Health.</li>
+  </ul>
+</div>
+
+<h2>Technical Skills</h2>
+
+<div class="skills">
+  <p><b>Languages:</b> Python, TypeScript, C#, Ruby, SQL, HTML, CSS</p>
+  <p><b>Frameworks &amp; Libraries:</b> React, .NET, Ruby on Rails, Svelte, Next.js, Flask, FastAPI, Express, Node.js, Tailwind</p>
+  <p><b>Machine Learning &amp; AI:</b> PyTorch, Pandas, NumPy, LangChain, OpenCV, Mediapipe, Semantic Kernel, LLMs</p>
+  <p><b>Databases:</b> PostgreSQL, SQL Server, Redis</p>
+  <p><b>Cloud &amp; DevOps:</b> AWS, Azure, Docker, Git</p>
+  <p><b>Tools &amp; Platforms:</b> UiPath, Linux, Vim, RESTful APIs</p>
+  <p><b>Specialized:</b> Computer Vision, Reinforcement Learning, Natural Language Processing, Signal Processing</p>
+</div>
+
+<h2>Key Projects</h2>
+
+<div class="entry">
+  <div class="entry-head">
+    <div class="entry-title">Customer Support Bot</div>
+  </div>
+  <ul>
+    <li>Agentic chatbot that automatically logs forms based on user requests. Built with C#/.NET 9 and Semantic Kernel for AI agent management, SignalR for real-time communication, hosted on AWS Elastic Beanstalk with PostgreSQL and Redis.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="entry-head">
+    <div class="entry-title">Brisbane Public Transport App</div>
+  </div>
+  <ul>
+    <li>Fullstack application using an Express/Node.js backend and Svelte frontend, integrating the Translink API for real-time transport information and the Google Routes API for directions.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="entry-head">
+    <div class="entry-title">Inventory Management System</div>
+  </div>
+  <ul>
+    <li>Fullstack application with a C#/.NET 9 backend and React/Next.js frontend. Hosted on Azure with SQL Server. Features item management, stock levels and stock logs.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="entry-head">
+    <div class="entry-title">Walker AI</div>
+  </div>
+  <ul>
+    <li>2D bipedal walker using a NEAT genetic algorithm written from scratch in TypeScript. Uses Matter.js for physics and PixiJS for rendering, trained in the browser.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="entry-head">
+    <div class="entry-title">Unemployment Rate Predictor</div>
+  </div>
+  <ul>
+    <li>LSTM neural network predicting Australian unemployment rates using PyTorch. Backend with Flask, deployed on Google Cloud Run.</li>
+  </ul>
+</div>
+
+</body>
+</html>

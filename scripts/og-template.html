@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+  @font-face {
+    font-family: "Inter Variable";
+    src: url("/inter.woff2") format("woff2");
+    font-weight: 100 900;
+  }
+  * { margin: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    font-family: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+    background: #060908;
+    color: #f6f6f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 72px;
+    padding: 0 80px;
+    position: relative;
+  }
+  /* subtle grid, same pattern language as the site diagram */
+  body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(#0c1510 1px, transparent 1px),
+      linear-gradient(90deg, #0c1510 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+  .glow {
+    position: absolute;
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 640px; height: 640px;
+    background: radial-gradient(circle, rgb(101 230 149 / 0.16) 0%, transparent 62%);
+    pointer-events: none;
+  }
+  .left { position: relative; flex: 1; }
+  .name {
+    font-size: 92px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+  }
+  .role {
+    margin-top: 18px;
+    font-size: 42px;
+    font-weight: 700;
+    color: #65e695;
+  }
+  .line {
+    margin-top: 22px;
+    font-size: 25px;
+    color: #9eb5aa;
+    line-height: 1.5;
+    max-width: 560px;
+  }
+  .url {
+    margin-top: 30px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #9eb5aa;
+  }
+  .photo {
+    position: relative;
+    width: 340px;
+    height: 453px;
+    border-radius: 20px;
+    border: 1px solid rgb(101 230 149 / 0.4);
+    object-fit: cover;
+  }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="left">
+    <div class="name">Lliam<br />Symonds</div>
+    <div class="role">Software Engineer</div>
+    <div class="line">Fullstack, machine learning and AI — shipped in production at Suncorp.</div>
+    <div class="url">lliamsymonds.vercel.app</div>
+  </div>
+  <img class="photo" src="/profile.webp" alt="" />
+</body>
+</html>

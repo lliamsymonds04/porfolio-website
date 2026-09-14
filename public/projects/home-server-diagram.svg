@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 660" width="1040" height="660" font-family="Inter, ui-sans-serif, system-ui, sans-serif" role="img" aria-label="Home Server architecture: visitor browsers connect over HTTPS to Caddy, which reverse-proxies fifteen Docker Compose services on a Ubuntu host; certificates come from Let's Encrypt via the Cloudflare DNS-01 challenge; data volumes sit alongside the containers.">
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#0C1510" stroke-width="1"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#65E695"/>
+    </marker>
+    <marker id="arrow-lime" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#90E149"/>
+    </marker>
+  </defs>
+
+  <!-- ground + grid -->
+  <rect width="1040" height="660" fill="#060908"/>
+  <rect width="1040" height="660" fill="url(#grid)"/>
+
+  <!-- ============ arrows (drawn first: behind boxes) ============ -->
+
+  <!-- visitors → caddy : HTTPS -->
+  <line x1="137" y1="212" x2="396" y2="212" stroke="#65E695" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="266" y="198" fill="#65E695" font-size="16" font-weight="600" text-anchor="middle">HTTPS :443</text>
+
+  <!-- cloudflare/let's encrypt ⇢ caddy : DNS-01 (dashed lime, security flow) -->
+  <line x1="893" y1="212" x2="706" y2="212" stroke="#90E149" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrow-lime)"/>
+  <text x="800" y="198" fill="#90E149" font-size="15" font-weight="600" text-anchor="middle">DNS-01</text>
+
+  <!-- caddy → docker compose : reverse proxy -->
+  <line x1="550" y1="276" x2="550" y2="312" stroke="#65E695" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="564" y="300" fill="#9EB5AA" font-size="14">reverse proxy</text>
+
+  <!-- compose ⇢ data volumes : bind mounts -->
+  <line x1="530" y1="524" x2="530" y2="558" stroke="#65E695" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="544" y="546" fill="#9EB5AA" font-size="14">bind mounts</text>
+
+  <!-- ============ host boundary ============ -->
+  <rect x="170" y="120" width="720" height="490" rx="16" fill="#0C1510" stroke="#206241" stroke-width="1.5" stroke-dasharray="8 4"/>
+  <text x="190" y="150" fill="#F6F6F6" font-size="18" font-weight="700">Ubuntu host</text>
+  <text x="190" y="172" fill="#9EB5AA" font-size="14">Ryzen 5 5600G · 13 GiB RAM · 466 GB SSD</text>
+  <rect x="736" y="132" width="134" height="28" rx="14" fill="#13261C" stroke="#206241" stroke-width="1"/>
+  <text x="803" y="151" fill="#65E695" font-size="14" font-weight="600" text-anchor="middle">up 125 days</text>
+
+  <!-- ============ visitors ============ -->
+  <rect x="15" y="180" width="122" height="64" rx="8" fill="#13261C" stroke="#206241" stroke-width="1.5"/>
+  <text x="76" y="207" fill="#F6F6F6" font-size="17" font-weight="700" text-anchor="middle">Visitors</text>
+  <text x="76" y="228" fill="#9EB5AA" font-size="13" text-anchor="middle">browsers</text>
+
+  <!-- ============ caddy ============ -->
+  <rect x="398" y="180" width="304" height="64" rx="8" fill="#13261C" stroke="#65E695" stroke-width="1.5"/>
+  <text x="550" y="207" fill="#F6F6F6" font-size="18" font-weight="700" text-anchor="middle">Caddy v2.11.4</text>
+  <text x="550" y="228" fill="#9EB5AA" font-size="13" text-anchor="middle">custom build · Cloudflare DNS plugin</text>
+
+  <!-- ============ cloudflare + let's encrypt (external) ============ -->
+  <rect x="895" y="180" width="130" height="64" rx="8" fill="#13261C" stroke="#90E149" stroke-width="1.5"/>
+  <text x="960" y="207" fill="#F6F6F6" font-size="16" font-weight="700" text-anchor="middle">Cloudflare</text>
+  <text x="960" y="228" fill="#9EB5AA" font-size="13" text-anchor="middle">Let's Encrypt</text>
+
+  <!-- ============ docker compose boundary ============ -->
+  <rect x="200" y="314" width="660" height="210" rx="12" fill="none" stroke="#206241" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="530" y="342" fill="#9EB5AA" font-size="15" font-weight="600" text-anchor="middle" letter-spacing="2">DOCKER COMPOSE · 15 CONTAINERS</text>
+
+  <!-- row 1 -->
+  <rect x="217" y="360" width="145" height="56" rx="8" fill="#13261C" stroke="#206241" stroke-width="1.5"/>
+  <text x="289" y="393" fill="#F6F6F6" font-size="16" font-weight="600" text-anchor="middle">Jellyfin</text>
+
+  <rect x="377" y="360" width="145" height="56" rx="8" fill="#13261C" stroke="#206241" stroke-width="1.5"/>
+  <text x="449" y="393" fill="#F6F6F6" font-size="16" font-weight="600" text-anchor="middle">Home Assistant</text>
+
+  <rect x="537" y="360" width="145" height="56" rx="8" fill="#13261C" stroke="#206241" stroke-width="1.5"/>
+  <text x="609" y="393" fill="#F6F6F6" font-size="16" font-weight="600" text-anchor="middle">Matter server</text>
+
+  <rect x="697" y="360" width="145" height="56" rx="8" fill="#13261C" stroke="#206241" stroke-width="1.5"/>
+  <text x="769" y="393" fill="#F6F6F6" font-size="16" font-weight="600" text-anchor="middle">SearXNG</text>
+
+  <!-- row 2 -->
+  <rect x="377" y="440" width="145" height="56" rx="8" fill="#13261C" stroke="#206241" stroke-width="1.5"/>
+  <text x="449" y="473" fill="#F6F6F6" font-size="16" font-weight="600" text-anchor="middle">Calibre-Web</text>
+
+  <rect x="537" y="440" width="145" height="56" rx="8" fill="#13261C" stroke="#206241" stroke-width="1.5"/>
+  <text x="609" y="473" fill="#9EB5AA" font-size="16" font-weight="600" text-anchor="middle">+ 9 more</text>
+
+  <!-- ============ data volumes ============ -->
+  <rect x="200" y="560" width="660" height="40" rx="8" fill="#13261C" stroke="#206241" stroke-width="1.5"/>
+  <text x="530" y="585" fill="#F6F6F6" font-size="15" font-weight="600" text-anchor="middle">Data volumes · shared data/ tree · per-service configs · ~124 GB media</text>
+</svg>

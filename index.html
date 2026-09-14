@@ -2,9 +2,69 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lliam Symonds - Portfolio</title>
+
+    <title>Lliam Symonds — Software Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Lliam Symonds: software engineer in Brisbane shipping AI claims automation in production at Suncorp — fullstack, machine learning and infra projects."
+    />
+
+    <!-- theme-color matches the token layer's two palettes -->
+    <meta name="theme-color" content="#060908" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f7faf8" media="(prefers-color-scheme: light)" />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Open Graph — absolute URLs; crawlers don't resolve relative ones (§8.4) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lliamsymonds.vercel.app/" />
+    <meta property="og:title" content="Lliam Symonds — Software Engineer" />
+    <meta
+      property="og:description"
+      content="AI claims automation in production at Suncorp, plus fullstack, machine learning and infra projects — Brisbane, Australia."
+    />
+    <meta property="og:image" content="https://lliamsymonds.vercel.app/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Lliam Symonds, Software Engineer — site preview" />
+    <meta property="og:locale" content="en_AU" />
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Lliam Symonds — Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="AI claims automation in production at Suncorp, plus fullstack, machine learning and infra projects — Brisbane, Australia."
+    />
+    <meta name="twitter:image" content="https://lliamsymonds.vercel.app/og.png" />
+
+    <!-- Person JSON-LD (§8.4: cheap and worth it; JobPosting-adjacent is overkill) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Lliam Symonds",
+        "jobTitle": "Software Engineer",
+        "worksFor": { "@type": "Organization", "name": "Suncorp" },
+        "email": "mailto:lliamsymonds04@gmail.com",
+        "url": "https://lliamsymonds.vercel.app/",
+        "sameAs": [
+          "https://github.com/lliamsymonds04",
+          "https://www.linkedin.com/in/lliam-symonds/",
+          "https://www.instagram.com/lliamsymonds04/"
+        ],
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "University of Queensland"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Brisbane",
+          "addressCountry": "AU"
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
