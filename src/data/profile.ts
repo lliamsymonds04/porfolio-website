@@ -23,8 +23,8 @@ export const profile = {
 /** Hero stat strip (§4.3) — value + label pairs, tabular-nums on the values. */
 export const heroStats = [
   {
-    value: "~200",
-    label: "open claims, every one runs through logic I built",
+    value: "200",
+    label: "open home claims a day, every one runs through logic I built",
   },
   {
     value: "days → ~5 min",

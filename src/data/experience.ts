@@ -4,8 +4,8 @@ import type { EducationEntry, ExperienceEntry } from "../types/content";
  * Work experience — §5.1. Reverse-chronological; the most recent role gets
  * the most visual weight. Bullets lead with the outcome, stacks live in the
  * chip row (§5.2). Every number is attached to the step it describes (§5.3):
- * the ~250/day lodgement figure ships nowhere; only the ~200 open-book
- * coverage claim and the multi-day → ~5-minute median assessment turnaround.
+ * the ~250/day lodgement figure ships nowhere; only the ~200 open home
+ * claims a day and the multi-day → ~5-minute median assessment turnaround.
  */
 export const experience: ExperienceEntry[] = [
   {
@@ -18,7 +18,7 @@ export const experience: ExperienceEntry[] = [
     summary:
       "Post-lodgement claims processing at the assessment-to-allocation boundary: new claim assessment, makesafe dispatch and builder assignment, all in production.",
     bullets: [
-      "Built an AI orchestrator that automates post-lodgement claim assessment in production — new claim assessment, makesafe dispatch and builder allocation — running across the entire open book of ~200 housing claims.",
+      "Built an AI orchestrator that automates post-lodgement claim assessment in production — new claim assessment, makesafe dispatch and builder allocation — running across the ~200 open home claims a day.",
       "Cut the median claim assessment from multiple days to about five minutes by removing the queueing and hand-off delays that previously parked claims awaiting an assessor, then awaiting allocation.",
       "Delivered LLM-backed claim summarisation and review that passed Suncorp's risk and compliance review — the gate that stops most LLM work in a regulated insurer from shipping.",
     ],
