@@ -35,9 +35,6 @@ export default function Hero() {
             </h1>
             <p className="mt-3 text-[clamp(1.35rem,4vw,2.5rem)] leading-tight font-semibold text-text">
               {profile.title}
-              <span className="mt-1 block text-[clamp(0.95rem,2.2vw,1.25rem)] font-normal text-muted">
-                {profile.contractualTitle}
-              </span>
             </p>
             <p className="mt-5 max-w-[60ch] text-base leading-relaxed text-muted md:text-lg">
               Recent UQ computer science graduate{" "}

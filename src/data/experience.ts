@@ -11,7 +11,6 @@ export const experience: ExperienceEntry[] = [
   {
     company: "Suncorp",
     role: "Software Engineer",
-    contractualTitle: "Intelligent Solution Developer (contractual title)",
     type: "Full-time",
     start: "Jan 2026",
     end: "Present",

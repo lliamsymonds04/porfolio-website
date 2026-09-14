@@ -50,8 +50,6 @@ export interface ExperienceEntry {
   company: string;
   /** Reader-facing role, e.g. "Software Engineer" (§5.5). */
   role: string;
-  /** Printed beneath the role, e.g. "Intelligent Solution Developer". */
-  contractualTitle?: string;
   type: EmploymentType;
   start: string;
   end: string | "Present";

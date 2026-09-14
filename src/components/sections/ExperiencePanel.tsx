@@ -48,12 +48,6 @@ function ExperienceCard({ entry }: { entry: ExperienceEntry }) {
           </h3>
           <p className="mt-0.5 font-semibold text-text">
             {entry.role}
-            {entry.contractualTitle !== undefined && (
-              <span className="font-normal text-muted">
-                {" "}
-                — {entry.contractualTitle}
-              </span>
-            )}
           </p>
           <MetaRow entry={entry} />
         </div>

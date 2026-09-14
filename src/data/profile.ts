@@ -8,8 +8,6 @@ export const profile = {
   name: "Lliam Symonds",
   /** Reader-facing title (§5.5) — matches <title> and the resume pairing. */
   title: "Software Engineer",
-  /** Contractual title, printed immediately beneath the reader-facing one. */
-  contractualTitle: "Intelligent Solution Developer (contractual title)",
   location: "Brisbane, Australia",
   email: "lliamsymonds04@gmail.com",
   socials: {
