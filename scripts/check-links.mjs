@@ -116,7 +116,7 @@ const urlList = [...externalUrls.keys()];
 //    freshness*, not link rot (og:image on a not-yet-redeployed site). We
 //    still check them below, but as a distinct "stale deploy" signal.
 const SKIP = (url) => url.startsWith("https://ws.audioscrobbler.com/");
-const deployOrigin = "https://lliamsymonds.vercel.app";
+const deployOrigin = "https://llia.me";
 
 const results = [];
 const toProbe = [];
@@ -169,15 +169,29 @@ for (const r of results) {
   if (r.skipped) {
     console.log(` skip  ${r.url} — ${r.skipped}`);
   } else if (r.deployCheck) {
-    // deployment freshness, not link rot: the file exists in dist/ but the
-    // live site hasn't been redeployed since it was added.
+    // deployment freshness: the file exists locally — does the live origin
+    // serve it? Unreachable origin (domain not connected yet) is a note,
+    // not a failure.
     const path = new URL(r.url).pathname;
-    const local = existsSync(join(root, "dist", path)) || path === "/";
-    if (!local) {
+    if (!existsSync(join(root, "dist", path)) && path !== "/") {
       console.log(`FAIL  ${r.url} (${r.where}) — referenced but not in dist/`);
       failures++;
-    } else {
-      console.log(` note  ${r.url} — deploy-freshness check: verify after redeploy`);
+      continue;
+    }
+    try {
+      const res = await fetch(r.url, {
+        redirect: "follow",
+        signal: AbortSignal.timeout(15_000),
+      });
+      if (res.status >= 400) {
+        console.log(`FAIL  ${r.url} (${r.where}) — live origin serves HTTP ${res.status}; redeploy needed`);
+        failures++;
+      } else {
+        console.log(`  ok  ${res.status}  ${r.url}  (deployed)`);
+      }
+    } catch (err) {
+      const reason = err instanceof Error ? err.cause?.code ?? err.message : String(err);
+      console.log(` note  ${r.url} — origin not reachable yet (${reason}); check after the domain connects`);
     }
   } else if (r.error !== null || r.status === null) {
     console.log(`FAIL  ${r.url} (${r.where}) — unreachable: ${r.error}`);
