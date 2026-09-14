@@ -26,11 +26,11 @@ function Footer() {
     
 
     return (
-        <div className="relative w-screen h-52 bg-[#FFBB00] flex flex-col pt-5 items-center">
-            <p className="text-white text-2xl font-sans mb-2">Like what you see? Get in Touch!</p>
-            {copiedEmail ? <p className="text-white txt-xl font-bold">Copied Email</p>: 
+        <div className="relative w-screen h-52 bg-accent flex flex-col pt-5 items-center">
+            <p className="text-accent-ink text-2xl font-sans mb-2">Like what you see? Get in Touch!</p>
+            {copiedEmail ? <p className="text-accent-ink txt-xl font-bold">Copied Email</p>: 
                 <button onClick={copyEmailToClipboard} title="Copy to clipboard">
-                    <p className="text-white txt-xl cursor-pointer">Email: <span className="underline font-bold">lliamsymonds04@gmail.com</span></p>
+                    <p className="text-accent-ink txt-xl cursor-pointer">Email: <span className="underline font-bold">lliamsymonds04@gmail.com</span></p>
                 </button>
             }
 
@@ -38,7 +38,7 @@ function Footer() {
                 {footerButtons.map((v) => <LinkButton imgSrc={v.imgSrc} link={v.link} key={v.imgSrc} />)}
             </div>
 
-            {songName != "" && <p className="absolute text-lg text-white font-light text-center bottom-3 max-w-[90%]">Fun Fact, the last song I listened to is{" "}
+            {songName != "" && <p className="absolute text-lg text-accent-ink font-light text-center bottom-3 max-w-[90%]">Fun Fact, the last song I listened to is{" "}
                 <span className="italic">{songName}</span>
                 {" by "} 
                 <span className="italic">{artistName}</span>

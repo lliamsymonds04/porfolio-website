@@ -1,27 +1,98 @@
+/* Self-hosted Inter — replaces the never-loaded font-family reference (§7.4) */
+@import "@fontsource-variable/inter";
+
 @import "tailwindcss";
 
-
-
+/*
+ * Design tokens — §7.2 of .plans/portfolio-overhaul.md
+ * Dark-first, green-dominant. Every colour on the site resolves through this
+ * layer; no component may hardcode a hex. Derived from the profile photo's
+ * measured hues (scripts/extract-palette.py) with saturation restored.
+ * All 14 contrast pairs verified WCAG 2.1 AA (§7.2).
+ */
 @theme {
-    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-    --animate-cursor: blink 0.8s infinite ease-in-out;
+  /* green-black neutrals — hue 150, stepped in lightness, not in hue */
+  --color-bg: #060908; /* near-black, green-tinted */
+  --color-surface: #0c1510;
+  --color-surface-2: #13261c;
+  --color-border: #206241; /* solidly green, carries the theme */
+  --color-text: #f6f6f6;
+  --color-muted: #9eb5aa; /* green-grey */
 
-    @keyframes blink {
-        0% { opacity: 1; }
-        50% { opacity: 0; }
-        90% { opacity: 1; }
-        100% { opacity: 1; }
-    }
+  /* greens */
+  --color-accent: #65e695; /* primary spring green */
+  --color-accent-2: #90e149; /* lime — photo's 60-89° olive family */
+  --color-accent-ink: #0d261a; /* text ON green surfaces */
+
+  --radius-card: 1rem;
+  --shadow-lift: 0 12px 32px -12px rgb(0 0 0 / 0.65);
+  --shadow-glow: 0 0 120px -20px rgb(101 230 149 / 0.28);
+
+  --animate-cursor: blink 0.8s infinite ease-in-out;
+
+  @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    90% { opacity: 1; }
+    100% { opacity: 1; }
+  }
 }
 
+/*
+ * Light theme — same variable names, swapped values (§7.2).
+ * Dark-first: dark is the default; light engages via the media query.
+ * Accents are re-solved for green-on-white AA (accent #12663A on #F7FAF8),
+ * verified with the extract-palette contrast maths before shipping.
+ */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-bg: #f7faf8;
+    --color-surface: #ffffff;
+    --color-surface-2: #dce9df;
+    --color-border: #9dbfa9;
+    --color-text: #0d1a12;
+    --color-muted: #3e5a4b;
+
+    --color-accent: #12663a;
+    --color-accent-2: #4c7a10;
+    --color-accent-ink: #f7faf8;
+
+    --shadow-glow: 0 0 120px -20px rgb(18 102 58 / 0.18);
+  }
+}
 
 html,
 body {
-    @apply bg-[#17141C] text-white font-sans;
-  
-    @media (prefers-color-scheme: dark) {
-      color-scheme: dark;
-    }
+  @apply bg-bg text-text font-sans antialiased;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+  }
+}
+
+/* Visible focus everywhere — Phase 4 acceptance depends on this (§2.2 A2) */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Global reduced-motion guard (§7.6, fixes A5) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -704,13 +704,14 @@ README.md            → correct the deploy URL, contact email (currently a plac
 - [x] ~~Confirm the dashboard's ~200 counts the same population as the ~250/day~~ — moot: the 250/day figure no longer appears on the site, so only the 200 ships.
 - **Accept for:** every printed figure is attached to the step it describes; zero dead links in the kept set. **← met**
 
-### Phase 2 — Design tokens + palette  **[~60% done]**
+### Phase 2 — Design tokens + palette  **[done]**
 - [x] `scripts/extract-palette.py` written and run against `~/Downloads/monkeys.jpg` — full measurement in §7.3.
 - [x] Green/black palette solved by search; all 14 contrast pairs asserted AA-clean (§7.2).
-- [ ] Paste the `@theme` block into `src/index.css` and delete every hardcoded hex.
-- [ ] Add the light-theme variable set and verify it with the script.
-- [ ] Self-host Inter; process the portrait into a 2× WebP (§7.3 framing decision).
-- **Accept for:** zero hardcoded hex values outside `src/index.css`; contrast table all-pass in both themes.
+- [x] `@theme` block pasted into `src/index.css` and every hardcoded hex deleted — `grep` confirms zero hex literals outside `src/index.css`.
+- [x] Light-theme variable set added (same variable names, swapped via `prefers-color-scheme: light`) and verified with the same contrast maths — first-pass `surface-2` failed the non-text minimum (1.12 vs 1.15) and was re-solved to `#DCE9DF`; all pairs now pass.
+- [x] Inter self-hosted via `@fontsource-variable/inter` (variable woff2, weights 100–900); portrait processed to `public/me/profile.webp` (1170×1560, full 3:4 frame per §7.3, 2× of a 585px display width, 274KB).
+- **Accept for:** zero hardcoded hex values outside `src/index.css`; contrast table all-pass in both themes. **← met**
+- *Implementation note:* the plan's `--glow-accent` ships as `--shadow-glow` so it lands in Tailwind v4's `--shadow-*` namespace and gets a `shadow-glow` utility for free.
 
 ### Phase 3 — Data layer
 - [ ] `src/types/content.ts`, `src/data/*.ts` per §8.2; delete the JSON files.
@@ -773,6 +774,7 @@ README.md            → correct the deploy URL, contact email (currently a plac
 
 ## 11. Changelog
 
+- **v0.9** — **Phase 2 complete.** `src/index.css` rebuilt as the full token layer: §7.2 green/black `@theme` (neutrals, accents, radius, lift shadow, glow), the light-theme variable swap under `prefers-color-scheme: light`, global `:focus-visible` styling, and the `prefers-reduced-motion` guard (A5's global fix lands here rather than in the Phase 8 motion pass). Light theme re-verified with the WCAG maths — first-pass surface-2 missed the 1.15 non-text minimum and was re-solved to `#DCE9DF`. Every hardcoded hex purged from components (footer, hero variants, project dots, heading colours now resolve through tokens; the amber `#FFBB00`/`#FFC936` retire to `accent`). Inter self-hosted via `@fontsource-variable/inter`; portrait shipped as `public/me/profile.webp` (full 3:4 frame, 2× display size). Build + lint pass; Inter woff2 confirmed self-hosted in `dist/`. Old `PhotoOfMe.jpg` still in place — hero swap and its deletion are Phase 5.
 - **v0.8** — Phase 0 complete; Phase 1 complete; all remaining content answers supplied.
   **Tanda (Q3) closed:** fixed-term internship that concluded naturally; "3 major regions" named as **Australia, the US and Europe** in the bullet. The optional employer-count metric remains the only Tanda item open, and it's optional.
   **Stats decision: only the ~200 open claims stat ships.** The ~250/day lodgement figure is removed from the site entirely — hero strip, Experience bullets, everywhere — which moots the population-consistency check in §5.1/§4.3 and the corresponding risk. Suncorp card is now three bullets; §5.4's attribution guardrail is preserved for any future reinstatement.

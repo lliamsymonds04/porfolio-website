@@ -80,7 +80,7 @@ function Dots({ count }: { count: number }) {
     return (
         <div className="flex flex-row gap-3 align-center justify-center mt-4 mb-8">
             {Array.from({ length: count }).map((_, index) => (
-                <div key={index} className="w-3 h-3 bg-[#FFC936] rounded-full" />
+                <div key={index} className="w-3 h-3 bg-accent rounded-full" />
             ))}
         </div>
     );

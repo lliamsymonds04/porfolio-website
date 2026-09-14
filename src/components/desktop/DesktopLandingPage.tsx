@@ -7,13 +7,13 @@ function DesktopLandingPage() {
 
             <div className='flex flex-row justify-center items-center absolute top-1/4 px-96 left-1/2 -translate-x-1/2 w-max'>
                 <div className='flex flex-col justify-start items-start w-[50%] pr-32'>
-                    <div className = 'text-[#FFBB00] text-[clamp(0.6rem,1vw,1.2rem)] -mb-6 ml-2'>
+                    <div className = 'text-accent text-[clamp(0.6rem,1vw,1.2rem)] -mb-6 ml-2'>
                         Hi, my name is
                     </div>
-                    <div className='text-[#FFC936] text-[clamp(6.5rem,1vw,10rem)]'>
+                    <div className='text-accent text-[clamp(6.5rem,1vw,10rem)]'>
                         Lliam Symonds
                     </div>
-                    <div className = 'text-[#FFBB00] text-[clamp(3rem,1vw,6rem)] leading-tight pb-6'>
+                    <div className = 'text-accent text-[clamp(3rem,1vw,6rem)] leading-tight pb-6'>
                         Fullstack and Machine Learning Engineer 
                     </div> 
                     <div className='text-[clamp(1.5rem,1vw,3rem)]' style={{color:'rgba(255,255,255,0.85)'}}>
