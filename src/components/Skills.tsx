@@ -6,7 +6,7 @@ type SkillsData = {
 
 function SkillTag({ skill }: { skill: string }) {
     return (
-        <span className="inline-block bg-amber-400 text-gray-800 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
+        <span className="inline-block bg-transparent text-accent border border-border rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
             {skill}
         </span>
     );
