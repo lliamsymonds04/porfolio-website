@@ -19,19 +19,3 @@ export const profile = {
   /** Ship with the binary, not as a source path (§9 Phase 5). */
   resume: { path: "/resume.pdf", file: "Lliam-Symonds-Resume.pdf" },
 } as const;
-
-/** Hero stat strip (§4.3) — value + label pairs, tabular-nums on the values. */
-export const heroStats = [
-  {
-    value: "200",
-    label: "open home claims a day, every one runs through logic I built",
-  },
-  {
-    value: "days → ~5 min",
-    label: "median claim assessment turnaround, in production",
-  },
-  {
-    value: "6",
-    label: "shipped products, across fullstack, ML and AI",
-  },
-] as const;

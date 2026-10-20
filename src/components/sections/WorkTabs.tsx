@@ -8,15 +8,13 @@ import ExperiencePanel from "./ExperiencePanel";
 import ProjectsPanel from "./ProjectsPanel";
 
 /**
- * WorkTabs (§4.1) — the headline feature: one section, two tabs
- * (Experience | Projects) replacing the standalone Projects section.
+ * WorkTabs (§4.1) — one section, two tabs (Experience | Projects).
  *
- * - Section anchor is `#experience`; a sibling anchor div carries
- *   `#projects` at the tab row, so both hashes resolve and the
- *   hashchange listener in useTabSelection selects the matching tab.
- * - The section heading changes with the active tab: "Where I've
- *   worked" / "What I've built" (the accent lead phrase convention
- *   from Section).
+ * - Section anchor is `#experience`; a sibling anchor div carries `#projects`
+ *   at the tab row, so both hashes resolve and the hashchange listener in
+ *   useTabSelection selects the matching tab.
+ * - The section heading is plain serif now; the eyebrow carries the number and
+ *   the tab row carries the active state.
  */
 const TAB_IDS = ["experience", "projects"] as const;
 const STORAGE_KEY = "worktabs";
@@ -36,14 +34,13 @@ export default function WorkTabs() {
   return (
     <Section
       id="experience"
-      lead={isExperience ? "Where I've" : "What I've"}
-      rest={isExperience ? "worked" : "built"}
-      className="pt-10 pb-16 md:pt-14 md:pb-24"
+      index="01"
+      label="Work"
+      title={isExperience ? "Where I've worked" : "What I've built"}
+      className="mt-14 md:mt-20"
     >
-      {/*
-        Deep-link target for "#projects": sits at the tab row, and the
-        hashchange listener in useTabSelection flips the tab to match.
-      */}
+      {/* Deep-link target for "#projects": sits at the tab row, and the
+          hashchange listener in useTabSelection flips the tab to match. */}
       <div id="projects" className="scroll-mt-24" aria-hidden="true" />
 
       <Tabs

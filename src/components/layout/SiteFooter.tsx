@@ -1,26 +1,22 @@
 import { useEffect, useState } from "react";
 
 import getLastSong from "../../util/GetLastSong";
-import useCopyToClipboard from "../../hooks/useCopyToClipboard";
-import { Button } from "../ui/Button";
-import { GitHubIcon, InstagramIcon, LinkedInIcon, MailIcon } from "../icons";
 import { profile } from "../../data/profile";
 
 /**
- * SiteFooter (§4, §8.3) — replaces Footer.tsx. Contact CTA + socials on
- * `surface` with token-driven text, so the old #FFFFFF-on-#FFBB00 contrast
- * failure (§2.2, 1.70:1) is fixed by construction. The Last.fm flourish is
- * subordinate: below the CTA, small, muted, and rendered only when a track
- * actually resolves (Q6 — never an empty gap).
- * Phase 5: identity details now come from the shared `profile` module, and
- * the LinkedIn URL is the resume's `/in/lliam-symonds/` (L8 — the old
- * numeric URL is retired everywhere).
+ * SiteFooter — editorial pass.
+ *
+ * The contact block is one serif line with the address as a mono link, then a
+ * hairline footer row carrying the copyright and plain-text social links. The
+ * copy-to-clipboard button and the icon row are gone; the mailto link is the
+ * action. The Last.fm flourish stays, but demoted to a mono line above the
+ * footer row and still only rendered when a track resolves.
  */
 
 const SOCIALS = [
-  { name: "GitHub", url: profile.socials.github, Icon: GitHubIcon },
-  { name: "LinkedIn", url: profile.socials.linkedin, Icon: LinkedInIcon },
-  { name: "Instagram", url: profile.socials.instagram, Icon: InstagramIcon },
+  { name: "GitHub", url: profile.socials.github },
+  { name: "LinkedIn", url: profile.socials.linkedin },
+  { name: "Instagram", url: profile.socials.instagram },
 ];
 
 interface NowPlaying {
@@ -30,7 +26,6 @@ interface NowPlaying {
 
 export default function SiteFooter() {
   const [song, setSong] = useState<NowPlaying | null>(null);
-  const [copied, copyEmailToClipboard] = useCopyToClipboard(profile.email);
 
   useEffect(() => {
     let cancelled = false;
@@ -43,58 +38,51 @@ export default function SiteFooter() {
   }, []);
 
   return (
-    <footer id="contact" className="scroll-mt-24 border-t border-border bg-surface">
-      <div className="mx-auto w-full max-w-[72rem] px-6 py-16 md:px-8">
-        <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-          Like what you see? <span className="text-accent">Get in touch.</span>
-        </h2>
-        <p className="mt-3 max-w-[60ch] text-muted">
-          I'm always happy to talk about software engineering, machine learning,
-          or anything on this page. My inbox is open.
+    <footer
+      id="contact"
+      className="mt-14 scroll-mt-24 border-t border-rule pt-7 md:mt-20 md:pt-[34px]"
+    >
+      <div className="mx-auto w-full max-w-[1180px] px-6 md:px-12">
+        <p className="flex items-baseline gap-[18px] font-mono text-[10px] tracking-[0.2em] text-dim uppercase">
+          <span className="font-medium text-ink">04</span>
+          <span>Contact</span>
         </p>
 
-        <div className="mt-8 flex flex-wrap items-center gap-3">
-          <Button href={`mailto:${profile.email}`}>
-            <MailIcon size={18} />
-            Say hello
-          </Button>
-          <Button
-            variant="ghost"
-            onClick={copyEmailToClipboard}
-            ariaLabel="Copy email address to clipboard"
-          >
-            {copied ? "Copied!" : profile.email}
-          </Button>
-        </div>
+        <h2 className="mt-3 font-serif text-[42px] leading-[1.15] tracking-[-0.012em] md:text-[62px]">
+          Get <em className="italic text-olive">in touch.</em>
+        </h2>
 
-        <ul className="mt-10 flex items-center gap-5 border-t border-border pt-8">
-          {SOCIALS.map(({ name, url, Icon }) => (
-            <li key={name}>
-              <a
-                href={url}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`${name} (opens in a new tab)`}
-                className="inline-flex text-muted transition-colors hover:text-accent"
-              >
-                <Icon size={24} />
-              </a>
-            </li>
-          ))}
-        </ul>
+        <a
+          href={`mailto:${profile.email}`}
+          className="mt-[22px] inline-block border-b border-accent pb-1 font-mono text-[12.5px] tracking-[0.06em] text-ink transition-colors hover:text-accent"
+        >
+          {profile.email}
+        </a>
 
         {song !== null && (
-          <p className="mt-8 text-sm text-muted">
-            Now playing:{" "}
-            <span className="italic text-text">{song.trackName}</span>
-            {" by "}
-            <span className="italic text-text">{song.artist}</span>
+          <p className="mt-5 font-mono text-[10px] tracking-[0.16em] text-dim uppercase">
+            Now playing: {song.trackName} · {song.artist}
           </p>
         )}
 
-        <p className="mt-8 text-xs text-muted">
-          © {new Date().getFullYear()} Lliam Symonds
-        </p>
+        <div className="mt-11 flex flex-col gap-3 border-t border-rule pt-[18px] font-mono text-[10px] tracking-[0.16em] text-dim uppercase md:flex-row md:items-baseline md:justify-between">
+          <span>© {new Date().getFullYear()} Lliam Symonds</span>
+          <ul className="flex items-baseline gap-[22px]">
+            {SOCIALS.map(({ name, url }) => (
+              <li key={name}>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-dim transition-colors hover:text-ink"
+                >
+                  {name}
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </footer>
   );

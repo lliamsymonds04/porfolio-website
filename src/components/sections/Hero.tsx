@@ -1,117 +1,105 @@
-import { Button } from "../ui/Button";
-import { DownloadIcon, ExternalLinkIcon, GitHubIcon } from "../icons";
-import { heroStats, profile } from "../../data/profile";
+import { profile } from "../../data/profile";
 
 /**
- * Hero (§4, §7.7) — the merged responsive hero. One component tree, CSS
- * breakpoints; replaces the desktop/mobile split and `useCheckMobile` (L1/L3).
- * The name uses a display clamp whose middle value actually engages (L2's
- * fix), the status line says graduate + Suncorp — not student (B5) — and the
- * portrait is the full 3:4 frame in a rounded card per §7.3 (never a tight
- * face crop: the frame contains monkeys, and decapitating them throws away
- * the photo's best quality).
+ * Hero — editorial pass.
  *
- * CTA row (§4.2): email (primary) · GitHub (ghost) · Resume download (ghost).
+ * Changes from the card hero it replaces:
+ * - No "Hi, my name is" opener and no stat strip; the numbers live in the
+ *   Suncorp row of the Experience panel, where they read as evidence.
+ * - Instrument Serif display line with the surname set in italic olive.
+ * - The portrait keeps its colour, has no frame, no ring, no glow and no
+ *   caption, and bleeds off the right edge of the viewport. That bleed is what
+ *   replaces the rounded card treatment.
+ * - CTAs are a mono link row separated by hairlines, not pill buttons.
  */
+
+const LINKS = [
+  { label: "Email", href: `mailto:${profile.email}`, arrow: "↗" },
+  { label: "GitHub", href: profile.socials.github, arrow: "↗", external: true },
+  {
+    label: "LinkedIn",
+    href: profile.socials.linkedin,
+    arrow: "↗",
+    external: true,
+  },
+  {
+    label: "Resume",
+    href: profile.resume.path,
+    arrow: "↓",
+    download: profile.resume.file,
+  },
+] as const;
+
 export default function Hero() {
   return (
-    <div className="relative overflow-hidden bg-bg">
-      {/* Soft accent glow behind the portrait column (§7.2 budget: one radial,
-          low alpha — not a gradient wash across the page). */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-[-12rem] right-[-8rem] hidden h-[36rem] w-[36rem] rounded-full bg-accent/10 blur-3xl lg:block"
-      />
+    <div className="border-t border-rule">
+      <div className="mx-auto grid w-full max-w-[1180px] px-6 md:px-12 lg:grid-cols-[minmax(0,1fr)_372px]">
+        <div className="py-8 md:pt-[54px] md:pb-14 lg:pr-16">
+          <p className="flex items-center gap-[9px] font-mono text-[10px] tracking-[0.2em] text-dim uppercase">
+            <span
+              aria-hidden="true"
+              className="h-[5px] w-[5px] rounded-full bg-accent"
+            />
+            {profile.location} · open to work
+          </p>
 
-      <div className="mx-auto w-full max-w-[72rem] px-6 pt-16 pb-12 md:px-8 md:pt-24 md:pb-16">
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:gap-16">
-          {/* Copy column */}
-          <div className="flex flex-col items-start">
-            <p className="text-accent text-base font-semibold md:text-lg">
-              Hi, my name is
-            </p>
-            <h1 className="mt-3 text-[clamp(2.5rem,8vw,6rem)] leading-[1.02] font-bold tracking-tight">
-              {profile.name}
-            </h1>
-            <p className="mt-3 text-[clamp(1.35rem,4vw,2.5rem)] leading-tight font-semibold text-text">
-              {profile.title}
-            </p>
-            <p className="mt-5 max-w-[60ch] text-base leading-relaxed text-muted md:text-lg">
-              Recent UQ computer science graduate{" "}
-              <span className="text-text">(ML major)</span>, now a software
-              engineer at{" "}
+          <h1 className="mt-[30px] font-serif text-[64px] leading-[0.92] tracking-[-0.02em] md:text-[108px]">
+            Lliam
+            <br />
+            <em className="italic text-olive">Symonds</em>
+          </h1>
+
+          <div className="mt-[30px] flex flex-wrap items-baseline gap-x-[14px] gap-y-1 border-t border-rule pt-4 font-mono text-[10.5px] tracking-[0.18em] uppercase">
+            <span className="font-medium text-ink">{profile.title}</span>
+            <span className="text-dim">AI claims automation · Suncorp</span>
+          </div>
+
+          <p className="mt-[26px] max-w-[46ch] text-[16px] leading-[1.72] text-body md:text-[17px]">
+            I've built AI systems that assess insurance claims in production at{" "}
+            <a
+              href="https://www.suncorp.com.au/"
+              target="_blank"
+              rel="noreferrer"
+              className="border-b border-accent pb-px text-ink transition-colors hover:text-accent"
+            >
+              Suncorp
+            </a>
+            , and shipped AI into small startup teams. Recent UQ computer science
+            graduate, ML major.
+          </p>
+
+          <div className="mt-[34px] flex flex-wrap items-center gap-y-2 border-t border-rule pt-4 font-mono text-[10.5px] tracking-[0.16em] uppercase">
+            {LINKS.map((link) => (
               <a
-                href="https://www.suncorp.com.au/"
-                target="_blank"
-                rel="noreferrer"
-                className="font-medium text-text underline decoration-border underline-offset-4 transition-colors hover:text-accent"
+                key={link.label}
+                href={link.href}
+                {...("external" in link && link.external
+                  ? { target: "_blank", rel: "noreferrer" }
+                  : {})}
+                {...("download" in link && link.download
+                  ? { download: link.download }
+                  : {})}
+                className="border-l border-rule px-[18px] text-ink transition-colors first:border-l-0 first:pl-0 hover:text-accent max-md:px-3"
               >
-                Suncorp
-              </a>{" "}
-              building AI systems for insurance claims in production. Based in{" "}
-              {profile.location}.
-            </p>
-
-            {/* CTA row */}
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Button href={`mailto:${profile.email}`}>Get in touch</Button>
-              <Button
-                variant="ghost"
-                href={profile.socials.github}
-                external
-                ariaLabel="GitHub profile (opens in a new tab)"
-              >
-                <GitHubIcon size={18} />
-                GitHub
-                <ExternalLinkIcon size={14} className="opacity-70" />
-              </Button>
-              <Button
-                variant="ghost"
-                href={profile.resume.path}
-                external
-                ariaLabel={`Download resume (${profile.resume.file})`}
-                download={profile.resume.file}
-              >
-                <DownloadIcon size={18} />
-                Resume
-              </Button>
-            </div>
-
-            {/* Stat strip (§4.3) — muted label + accent value, tabular-nums
-                on the values. Population figure leads; no 250/day anywhere. */}
-            <dl className="mt-12 grid w-full grid-cols-3 gap-6 border-t border-border pt-6">
-              {heroStats.map((stat) => (
-                <div key={stat.label} className="flex flex-col">
-                  <dt className="order-last mt-1 text-xs leading-snug text-muted md:text-sm">
-                    {stat.label}
-                  </dt>
-                  <dd className="order-first text-xl font-bold text-accent tabular-nums md:text-2xl">
-                    {stat.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+                {link.label}
+                <span aria-hidden="true" className="ml-1.5 text-dim">
+                  {link.arrow}
+                </span>
+              </a>
+            ))}
           </div>
+        </div>
 
-          {/* Portrait column — full 3:4 frame, rounded card, accent ring at
-              low opacity (§7.3). At lg it's the right-hand column; below lg
-              it stacks beneath the copy so the name is read first. */}
-          <div className="mx-auto w-full max-w-sm lg:max-w-none">
-            <div className="relative">
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 -z-10 scale-95 rounded-card bg-accent/10 blur-2xl"
-              />
-              <img
-                src="/me/profile.webp"
-                alt="Lliam Symonds holding a monkey on his shoulder"
-                width={1170}
-                height={1560}
-                fetchPriority="high"
-                className="aspect-[3/4] w-full rounded-card object-cover shadow-glow ring-1 ring-accent/40"
-              />
-            </div>
-          </div>
+        {/* Photo column: colour, unframed, bleeding to the viewport edge */}
+        <div className="-mr-6 md:-mr-12 lg:mr-[calc(-1*(max(0px,(100vw-1180px)/2)+48px))]">
+          <img
+            src="/me/profile.webp"
+            alt="Lliam Symonds holding a monkey on his shoulder"
+            width={1170}
+            height={1560}
+            fetchPriority="high"
+            className="aspect-[4/5] w-full object-cover object-[52%_28%] lg:aspect-auto lg:h-full lg:min-h-[520px]"
+          />
         </div>
       </div>
     </div>

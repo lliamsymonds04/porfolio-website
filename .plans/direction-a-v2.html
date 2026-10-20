@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>llia.me — direction A, second draft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0b0c0a;
+    --ink: #ecebe5;
+    --body: #a8ada2;
+    --dim: #848d86;
+    --rule: #23251f;
+    --rule-soft: #1a1c17;
+    --accent: #65e695;
+    --serif: "Instrument Serif", Georgia, serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+    --gutter: 48px;
+    --measure: 1180px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: #16181a; }
+  body { font-family: Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+
+  .band {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+    color: #6d737a; background: #16181a; border-bottom: 1px solid #23272a;
+    padding: 18px 32px; display: flex; justify-content: space-between;
+  }
+  .band b { color: #c9ced3; font-weight: 500; }
+
+  .page { background: var(--bg); color: var(--ink); overflow-x: clip; }
+  .wrap { max-width: var(--measure); margin: 0 auto; padding: 0 var(--gutter); }
+
+  /* ── header ── */
+  .top { display: flex; align-items: baseline; justify-content: space-between; padding: 26px 0 22px; }
+  .mark { font-family: var(--serif); font-size: 23px; letter-spacing: -.01em; }
+  .mark i { font-style: italic; }
+  .nav { display: flex; gap: 26px; font-family: var(--mono); font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); }
+  .nav b { color: var(--ink); font-weight: 500; }
+  .nav u { text-decoration: none; border-bottom: 1px solid var(--accent); color: var(--ink); padding-bottom: 2px; }
+
+  /* ── hero ── */
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 372px;
+    align-items: stretch;
+    border-top: 1px solid var(--rule);
+  }
+  .hero .copy { padding: 54px 64px 56px 0; }
+  .kicker { display: flex; align-items: center; gap: 9px; font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); }
+  .kicker .dot { width: 5px; height: 5px; border-radius: 999px; background: var(--accent); }
+  h1 {
+    font-family: var(--serif); font-weight: 400; font-size: 108px; line-height: .92;
+    letter-spacing: -.02em; margin-top: 30px;
+  }
+  h1 em { font-style: italic; color: #b9c4a8; }
+  .roleline {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 14px;
+    margin-top: 30px; padding-top: 16px; border-top: 1px solid var(--rule);
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase;
+  }
+  .roleline b { color: var(--ink); font-weight: 500; }
+  .roleline span { color: var(--dim); }
+  .lede { margin-top: 26px; font-size: 17px; line-height: 1.72; color: var(--body); max-width: 46ch; }
+  .lede u { text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--accent); }
+  .links { display: flex; flex-wrap: wrap; gap: 6px 0; margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--rule);
+           font-family: var(--mono); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; }
+  .links a { color: var(--ink); text-decoration: none; padding: 0 18px; border-left: 1px solid var(--rule); }
+  .links a:first-child { padding-left: 0; border-left: 0; }
+  .links a span { color: var(--dim); margin-left: 6px; }
+
+  /* photo: colour, no frame, no caption, bleeding to the viewport edge */
+  .shot {
+    margin-right: calc(-1 * (max(0px, (100vw - 1180px) / 2) + 48px));
+    min-height: 520px;
+  }
+  .shot img { width: 100%; height: 100%; min-height: 520px; object-fit: cover; object-position: 52% 32%; display: block; }
+
+  /* ── sections ── */
+  section { border-top: 1px solid var(--rule); padding: 34px 0 8px; }
+  .eyebrow { display: flex; align-items: baseline; gap: 18px; font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); }
+  .eyebrow b { color: var(--ink); font-weight: 500; }
+  h2 { font-family: var(--serif); font-weight: 400; font-size: 42px; letter-spacing: -.012em; margin-top: 12px; }
+  .sub { margin-top: 10px; font-size: 15.5px; line-height: 1.65; color: var(--body); max-width: 62ch; }
+
+  .item { display: grid; grid-template-columns: 176px minmax(0, 1fr) 208px; gap: 40px; padding: 30px 0; border-top: 1px solid var(--rule-soft); margin-top: 26px; }
+  .item:first-of-type { margin-top: 30px; }
+  .item .when { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); line-height: 1.9; }
+  .item h3 { font-size: 21px; font-weight: 500; letter-spacing: -.012em; }
+  .item .role { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); margin-top: 7px; }
+  .item ul { list-style: none; margin-top: 15px; display: grid; gap: 8px; font-size: 15px; line-height: 1.6; color: var(--body); }
+  .item ul li { padding-left: 17px; position: relative; }
+  .item ul li::before { content: "·"; position: absolute; left: 4px; color: var(--dim); }
+  .item .stack { font-family: var(--mono); font-size: 10px; line-height: 2; letter-spacing: .08em; color: var(--dim); text-align: right; }
+
+  .proj { display: grid; grid-template-columns: 232px minmax(0, 1fr) 190px; gap: 36px; padding: 26px 0; border-top: 1px solid var(--rule-soft); margin-top: 26px; }
+  .proj:first-of-type { margin-top: 30px; }
+  .proj img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; }
+  .proj h3 { font-size: 20px; font-weight: 500; letter-spacing: -.01em; }
+  .proj .year { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; color: var(--dim); margin-left: 10px; }
+  .proj p { margin-top: 9px; font-size: 15px; line-height: 1.62; color: var(--body); max-width: 60ch; }
+  .proj .links2 { display: flex; gap: 18px; margin-top: 12px; font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
+  .proj .links2 a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 2px; }
+  .proj .stack { font-family: var(--mono); font-size: 10px; line-height: 2; letter-spacing: .08em; color: var(--dim); text-align: right; }
+
+  .clusters { margin-top: 30px; border-top: 1px solid var(--rule-soft); }
+  .clusters div { display: grid; grid-template-columns: 176px minmax(0, 1fr); gap: 40px; padding: 12px 0; border-bottom: 1px solid var(--rule-soft); }
+  .clusters dt { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--dim); padding-top: 3px; }
+  .clusters dd { font-size: 14.5px; line-height: 1.6; color: #c2c7bc; }
+
+  .about p { margin-top: 14px; font-size: 16px; line-height: 1.75; color: var(--body); max-width: 64ch; }
+  .about p u { text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--rule); }
+
+  /* ── contact ── */
+  .contact { border-top: 1px solid var(--rule); margin-top: 44px; padding: 54px 0 40px; }
+  .contact h2 { font-size: 62px; margin-top: 14px; }
+  .contact h2 em { font-style: italic; color: #b9c4a8; }
+  .contact .mail { display: inline-block; margin-top: 22px; font-family: var(--mono); font-size: 12.5px; letter-spacing: .06em; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 4px; }
+  .foot { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--rule); margin-top: 44px; padding-top: 18px;
+          font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--dim); }
+  .foot .socials { display: flex; gap: 22px; }
+  .foot a { color: var(--dim); text-decoration: none; }
+
+  /* ── mobile ── */
+  @media (max-width: 900px) {
+    :root { --gutter: 22px; }
+    .top { flex-direction: column; align-items: flex-start; gap: 16px; padding: 20px 0 16px; }
+    .nav { flex-wrap: wrap; gap: 8px 18px; }
+    .hero { grid-template-columns: 1fr; }
+    .hero .copy { padding: 30px 0 34px; }
+    h1 { font-size: 64px; margin-top: 22px; }
+    .roleline { margin-top: 22px; }
+    .lede { margin-top: 20px; font-size: 16px; }
+    .links { margin-top: 26px; font-size: 10px; }
+    .links a { padding: 0 12px; }
+    .shot { margin-right: 0; min-height: 0; }
+    .shot img { min-height: 0; height: auto; aspect-ratio: 4/5; }
+    section { padding: 26px 0 6px; }
+    h2 { font-size: 31px; }
+    .item, .proj { grid-template-columns: 1fr; gap: 12px; padding: 22px 0; }
+    .item .when { display: flex; gap: 6px; }
+    .item .stack, .proj .stack { text-align: left; }
+    .clusters div { grid-template-columns: 1fr; gap: 3px; }
+    .contact { margin-top: 30px; padding: 34px 0 30px; }
+    .contact h2 { font-size: 42px; }
+    .foot { flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 30px; }
+  }
+</style>
+</head>
+<body>
+<div class="band"><span><b>A · second draft</b> — hairline rules, serif display, colour photo bleeding off the right edge</span><span>no stat strip · no caption · accent on 4 elements</span></div>
+
+<div class="page">
+  <div class="wrap">
+    <div class="top">
+      <div class="mark">Lliam <i>Symonds</i></div>
+      <div class="nav">
+        <span><b>Work</b></span><span>Projects</span><span>About</span><span>Skills</span><u>Resume</u>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap hero">
+    <div class="copy">
+      <div class="kicker"><span class="dot"></span> Brisbane, AU · open to work</div>
+      <h1>Lliam<br /><em>Symonds</em></h1>
+      <div class="roleline"><b>Software Engineer</b><span>AI claims automation · Suncorp</span></div>
+      <p class="lede">I've built AI systems that assess insurance claims in production at <u>Suncorp</u>, and shipped AI into small startup teams. Recent UQ computer science graduate, ML major.</p>
+      <div class="links">
+        <a href="#">Email<span>&#8599;</span></a>
+        <a href="#">GitHub<span>&#8599;</span></a>
+        <a href="#">LinkedIn<span>&#8599;</span></a>
+        <a href="#">Resume<span>&#8595;</span></a>
+      </div>
+    </div>
+    <div class="shot"><img src="../public/me/profile.webp" alt="Lliam Symonds holding a monkey on his shoulder" /></div>
+  </div>
+
+  <div class="wrap">
+    <section>
+      <div class="eyebrow"><b>01</b><span>Experience</span></div>
+      <h2>Where I've worked</h2>
+
+      <div class="item">
+        <div class="when">2026<br />Present</div>
+        <div>
+          <h3>Suncorp</h3>
+          <p class="role">Software Engineer · Brisbane</p>
+          <ul>
+            <li>Every one of the ~200 open home claims a day runs through assessment logic I built: new claim assessment, makesafe dispatch and builder allocation.</li>
+            <li>Median assessment cut from multiple days to about five minutes by removing the queueing that parked claims between assessors.</li>
+            <li>LLM-backed summarisation and review that passed the bank's risk and compliance review, where most LLM work stops.</li>
+          </ul>
+        </div>
+        <div class="stack">Python<br />UiPath<br />PostgreSQL<br />LLMs</div>
+      </div>
+
+      <div class="item">
+        <div class="when">2025<br />2026</div>
+        <div>
+          <h3>Tanda</h3>
+          <p class="role">Software Engineering Intern · Brisbane</p>
+          <ul>
+            <li>Shipped a content management library letting employers assign training, with AI generating the onboarding documents.</li>
+            <li>Built in Rails on a small team against production customer data across three regions.</li>
+          </ul>
+        </div>
+        <div class="stack">Ruby<br />Rails<br />PostgreSQL</div>
+      </div>
+
+      <div class="item">
+        <div class="when">2023<br />2025</div>
+        <div>
+          <h3>University of Queensland</h3>
+          <p class="role">BCompSc · Machine Learning major</p>
+          <ul>
+            <li>Capstone: Trailrunners, a LiDAR and GPS trail-tracking app for a UQ Health client.</li>
+          </ul>
+        </div>
+        <div class="stack">Brisbane</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="eyebrow"><b>02</b><span>Selected projects</span></div>
+      <h2>What I've built</h2>
+
+      <div class="proj">
+        <img src="../public/projects/customer-support-bot.webp" alt="Customer Support Bot interface" />
+        <div>
+          <h3>Customer Support Bot<span class="year">2025</span></h3>
+          <p>An agentic chatbot that logs forms straight from a user request. Semantic Kernel manages the agents, SignalR carries the real-time form and admin traffic.</p>
+          <div class="links2"><a href="#">GitHub</a><a href="#">Live</a></div>
+        </div>
+        <div class="stack">C# · .NET 9<br />Semantic Kernel<br />Elastic Beanstalk<br />PostgreSQL · Redis</div>
+      </div>
+
+      <div class="proj">
+        <img src="../public/projects/unemployment-predictor.webp" alt="Unemployment Rate Predictor output" />
+        <div>
+          <h3>Unemployment Rate Predictor<span class="year">2025</span></h3>
+          <p>An LSTM in PyTorch forecasting the Australian unemployment rate from ABS data going back to 1991, served through Flask and Docker.</p>
+          <div class="links2"><a href="#">GitHub</a><a href="#">Live</a></div>
+        </div>
+        <div class="stack">Python · PyTorch<br />LSTM<br />Flask · Docker<br />Cloud Run</div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="eyebrow"><b>03</b><span>About</span></div>
+      <h2>A bit about me</h2>
+      <p>I work on post-lodgement claims processing: the point where a claim stops being paperwork and becomes an assessor's queue. That covers LLM orchestration, agent tooling and the pipeline that takes a claim from lodged to assessed and allocated.</p>
+      <p>Outside work I build machine learning projects, fullstack apps and a growing pile of home-lab infrastructure. Lately the hobby of choice is game development in <u>Godot</u>, mostly for the fun of watching physics misbehave.</p>
+    </section>
+
+    <section>
+      <div class="eyebrow"><b>04</b><span>Toolkit</span></div>
+      <h2>What I work with</h2>
+      <dl class="clusters">
+        <div><dt>Languages</dt><dd>Python, TypeScript, C#, Ruby, SQL</dd></div>
+        <div><dt>Frameworks</dt><dd>React, .NET, Rails, Svelte, Next.js, FastAPI, Express, Node</dd></div>
+        <div><dt>AI &amp; ML</dt><dd>PyTorch, LangChain, Semantic Kernel, OpenCV, MediaPipe, Pandas, NumPy</dd></div>
+        <div><dt>Cloud &amp; data</dt><dd>AWS, Azure, Docker, PostgreSQL, SQL Server, Redis, Linux</dd></div>
+        <div><dt>Tooling</dt><dd>Git, UiPath, REST APIs, SignalR</dd></div>
+      </dl>
+    </section>
+
+    <div class="contact">
+      <div class="eyebrow"><b>05</b><span>Contact</span></div>
+      <h2>Get <em>in touch.</em></h2>
+      <a class="mail" href="mailto:lliamsymonds04@gmail.com">lliamsymonds04@gmail.com</a>
+      <div class="foot">
+        <span>© 2026 Lliam Symonds</span>
+        <div class="socials"><a href="#">GitHub</a><a href="#">LinkedIn</a><a href="#">Instagram</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

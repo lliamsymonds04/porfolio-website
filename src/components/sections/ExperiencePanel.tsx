@@ -1,158 +1,109 @@
 import { education, experience } from "../../data/experience";
-import { Badge } from "../ui/Badge";
-import { Card } from "../ui/Card";
-import { ExternalLinkIcon } from "../icons";
 import type { EducationEntry, ExperienceEntry } from "../../types/content";
 
 /**
- * ExperiencePanel (§5.1–§5.2) — reverse-chronological timeline entries plus
- * the education entry, rendered inside the Experience tab of WorkTabs.
+ * ExperiencePanel — editorial pass.
  *
- * Rules applied: bullets lead with the outcome and start with a verb; the
- * stack lives in the chip row; 3 bullets per role max; the reader-facing
- * role leads with the contractual title printed beneath (§5.5); dates in
- * tabular-nums so rows align (§7.4). No invented or orphaned numbers (§5.3).
+ * Replaces the bordered cards with hairline rows on a three-column grid:
+ * dates | role + bullets | stack. The monogram avatar, the employment-type
+ * badge, the timeline rail and the accent dot bullets are all gone; the
+ * employment type now reads as part of the mono role line and the bullets use
+ * a typographic marker.
  */
 
-function Monogram({ name }: { name: string }) {
+const WHEN = "font-mono text-[10.5px] leading-[1.9] tracking-[0.14em] text-dim uppercase";
+const ROLE = "mt-[7px] font-mono text-[10.5px] tracking-[0.14em] text-dim uppercase";
+const STACK =
+  "font-mono text-[10px] leading-[2] tracking-[0.08em] text-dim lg:text-right";
+
+function Bullets({ items }: { items: string[] }) {
   return (
-    <span
-      aria-hidden="true"
-      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border bg-surface-2 text-lg font-bold text-accent"
-    >
-      {name.charAt(0)}
-    </span>
+    <ul className="mt-[15px] grid max-w-[62ch] gap-2 text-[15px] leading-[1.6] text-body">
+      {items.map((item) => (
+        <li
+          key={item}
+          className="relative pl-[17px] before:absolute before:left-1 before:content-['·'] before:text-dim"
+        >
+          {item}
+        </li>
+      ))}
+    </ul>
   );
 }
 
-function MetaRow({ entry }: { entry: ExperienceEntry }) {
+function ExperienceRow({ entry }: { entry: ExperienceEntry }) {
   return (
-    <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
-      <span className="text-muted tabular-nums">
-        {entry.start} – {entry.end}
-      </span>
-      <Badge variant="solid">{entry.type}</Badge>
-      <span className="text-muted">{entry.location}</span>
+    <div className="mt-[26px] grid gap-3 border-t border-rule-soft pt-[26px] lg:grid-cols-[176px_minmax(0,1fr)_208px] lg:gap-10">
+      <div className={WHEN}>
+        <div>{entry.start}</div>
+        <div>{entry.end}</div>
+      </div>
+
+      <div>
+        <h3 className="text-[20px] font-medium tracking-[-0.012em] md:text-[21px]">
+          {entry.link === undefined ? (
+            entry.company
+          ) : (
+            <a
+              href={entry.link}
+              target="_blank"
+              rel="noreferrer"
+              className="transition-colors hover:text-accent"
+            >
+              {entry.company}
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          )}
+        </h3>
+        <p className={ROLE}>
+          {entry.role} · {entry.type} · {entry.location}
+        </p>
+        <Bullets items={entry.bullets} />
+      </div>
+
+      <div className={STACK}>
+        {entry.stack.map((tech) => (
+          <div key={tech}>{tech}</div>
+        ))}
+      </div>
     </div>
   );
 }
 
-function ExperienceCard({ entry }: { entry: ExperienceEntry }) {
+function EducationRow({ entry }: { entry: EducationEntry }) {
   return (
-    <Card className="p-6 md:p-8">
-      <div className="flex items-start gap-4">
-        <Monogram name={entry.company} />
-        <div className="min-w-0">
-          <h3 className="text-xl font-bold tracking-tight md:text-2xl">
-            {entry.company}
-          </h3>
-          <p className="mt-0.5 font-semibold text-text">
-            {entry.role}
-          </p>
-          <MetaRow entry={entry} />
-        </div>
+    <div className="mt-[26px] grid gap-3 border-t border-rule-soft pt-[26px] lg:grid-cols-[176px_minmax(0,1fr)_208px] lg:gap-10">
+      <div className={WHEN}>
+        <div>{entry.start}</div>
+        <div>{entry.end}</div>
       </div>
 
-      <p className="mt-5 text-muted">{entry.summary}</p>
-
-      <ul className="mt-5 space-y-3">
-        {entry.bullets.map((bullet) => (
-          <li key={bullet} className="flex gap-3">
-            <span
-              aria-hidden="true"
-              className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
-            />
-            <span>{bullet}</span>
-          </li>
-        ))}
-      </ul>
-
-      <ul className="mt-6 flex flex-wrap gap-2" aria-label={`${entry.company} stack`}>
-        {entry.stack.map((tech) => (
-          <li key={tech}>
-            <Badge variant="chip">{tech}</Badge>
-          </li>
-        ))}
-      </ul>
-
-      {entry.link !== undefined && (
-        <a
-          href={entry.link}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline underline-offset-4"
-        >
-          {entry.company}
-          <ExternalLinkIcon size={14} />
-          <span className="sr-only">(opens in a new tab)</span>
-        </a>
-      )}
-    </Card>
-  );
-}
-
-function EducationCard({ entry }: { entry: EducationEntry }) {
-  return (
-    <Card className="p-6 md:p-8">
-      <div className="flex items-start gap-4">
-        <Monogram name={entry.institution} />
-        <div className="min-w-0">
-          <h3 className="text-xl font-bold tracking-tight">
-            {entry.institution}
-          </h3>
-          <p className="mt-0.5 font-semibold text-text">
-            {entry.credential}
-            {entry.major !== undefined && (
-              <span className="font-normal text-muted">, {entry.major}</span>
-            )}
-          </p>
-          <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
-            <span className="text-muted tabular-nums">
-              {entry.start} – {entry.end}
-            </span>
-            <Badge variant="chip">Education</Badge>
-            <span className="text-muted">{entry.location}</span>
-          </div>
-        </div>
+      <div>
+        <h3 className="text-[20px] font-medium tracking-[-0.012em] md:text-[21px]">
+          {entry.institution}
+        </h3>
+        <p className={ROLE}>
+          {entry.credential}
+          {entry.major !== undefined ? ` · ${entry.major} major` : ""} ·{" "}
+          {entry.location}
+        </p>
+        {entry.detail !== undefined && <Bullets items={[entry.detail]} />}
       </div>
-      {entry.detail !== undefined && (
-        <p className="mt-5 text-sm text-muted">{entry.detail}</p>
-      )}
-    </Card>
+
+      <div className={STACK} aria-hidden="true" />
+    </div>
   );
 }
 
 export default function ExperiencePanel() {
   return (
-    <div className="relative">
-      {/*
-        Timeline rail (§7.2 usage budget: the rail carries the accent) —
-        a hairline down the left edge with a dot per entry.
-      */}
-      <span
-        aria-hidden="true"
-        className="absolute top-2 bottom-2 left-0 w-px bg-accent/40"
-      />
-      <ol className="space-y-6 pl-5 md:pl-8">
-        {experience.map((entry) => (
-          <li key={entry.company} className="relative">
-            <span
-              aria-hidden="true"
-              className="absolute top-10 -left-5 h-2.5 w-2.5 -translate-x-1/2 rounded-full border border-accent bg-accent md:-left-8"
-            />
-            <ExperienceCard entry={entry} />
-          </li>
-        ))}
-        <li className="relative">
-          <span
-            aria-hidden="true"
-            className="absolute top-10 -left-5 h-2.5 w-2.5 -translate-x-1/2 rounded-full border border-accent bg-accent md:-left-8"
-          />
-          {education.map((entry) => (
-            <EducationCard key={entry.institution} entry={entry} />
-          ))}
-        </li>
-      </ol>
+    <div className="pb-2">
+      {experience.map((entry) => (
+        <ExperienceRow key={entry.company} entry={entry} />
+      ))}
+      {education.map((entry) => (
+        <EducationRow key={entry.institution} entry={entry} />
+      ))}
     </div>
   );
 }

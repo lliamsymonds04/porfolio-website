@@ -1,75 +1,57 @@
-/* Self-hosted Inter — replaces the never-loaded font-family reference (§7.4) */
+/*
+ * Design tokens — editorial pass (see .plans/direction-a-v2.html for the
+ * reference render, and .plans/portfolio-overhaul.md §7 for the original
+ * system this replaces).
+ *
+ * Three faces, one job each:
+ *   Instrument Serif — display (name, section headings)
+ *   Inter            — body copy
+ *   JetBrains Mono   — labels, dates, metadata, link rows
+ *
+ * Near-monochrome by construction. Accent green appears only on links, the
+ * active nav item, the tab underline, the status dot and the contact mail
+ * underline. Everything else is ink / body / dim on bg, separated by hairlines
+ * rather than boxes.
+ *
+ * Contrast (measured, WCAG 2.1 AA): ink 16.4:1, body 8.6:1, dim 5.7:1,
+ * accent 12.4:1, all against --color-bg.
+ */
 @import "@fontsource-variable/inter";
+@import "@fontsource/instrument-serif/latin-400.css";
+@import "@fontsource/instrument-serif/latin-400-italic.css";
+@import "@fontsource-variable/jetbrains-mono";
 
 @import "tailwindcss";
 
-/*
- * Design tokens — §7.2 of .plans/portfolio-overhaul.md
- * Dark-first, green-dominant. Every colour on the site resolves through this
- * layer; no component may hardcode a hex. Derived from the profile photo's
- * measured hues (scripts/extract-palette.py) with saturation restored.
- * All 14 contrast pairs verified WCAG 2.1 AA (§7.2).
- */
 @theme {
   --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: "Instrument Serif", Georgia, ui-serif, serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo,
+    monospace;
 
-  /* green-black neutrals — hue 150, stepped in lightness, not in hue */
-  --color-bg: #060908; /* near-black, green-tinted */
-  --color-surface: #0c1510;
-  --color-surface-2: #13261c;
-  --color-border: #206241; /* solidly green, carries the theme */
-  --color-text: #f6f6f6;
-  --color-muted: #9eb5aa; /* green-grey */
-
-  /* greens */
-  --color-accent: #65e695; /* primary spring green */
-  --color-accent-2: #90e149; /* lime — photo's 60-89° olive family */
-  --color-accent-ink: #0d261a; /* text ON green surfaces */
-
-  --radius-card: 1rem;
-  --shadow-lift: 0 12px 32px -12px rgb(0 0 0 / 0.65);
-  --shadow-glow: 0 0 120px -20px rgb(101 230 149 / 0.28);
-
-  --animate-cursor: blink 0.8s infinite ease-in-out;
-
-  @keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    90% { opacity: 1; }
-    100% { opacity: 1; }
-  }
-}
-
-/*
- * Light theme — same variable names, swapped values (§7.2).
- * Dark-first: dark is the default; light engages via the media query.
- * Accents are re-solved for green-on-white AA (accent #12663A on #F7FAF8),
- * verified with the extract-palette contrast maths before shipping.
- */
-@media (prefers-color-scheme: light) {
-  :root {
-    --color-bg: #f7faf8;
-    --color-surface: #ffffff;
-    --color-surface-2: #dce9df;
-    --color-border: #9dbfa9;
-    --color-text: #0d1a12;
-    --color-muted: #3e5a4b;
-
-    --color-accent: #12663a;
-    --color-accent-2: #4c7a10;
-    --color-accent-ink: #f7faf8;
-
-    --shadow-glow: 0 0 120px -20px rgb(18 102 58 / 0.18);
-  }
+  --color-bg: #0b0c0a;
+  --color-ink: #ecebe5;
+  --color-body: #a8ada2;
+  --color-dim: #848d86;
+  --color-rule: #23251f;
+  --color-rule-soft: #1a1c17;
+  --color-accent: #65e695;
+  --color-olive: #b9c4a8;
 }
 
 html,
 body {
-  @apply bg-bg text-text font-sans antialiased;
+  @apply bg-bg text-ink font-sans antialiased;
 }
 
-/* Smooth anchor scrolling (§7.6); the reduced-motion guard below resets it. */
+/* `clip` rather than `hidden`: no scroll container is created, so the sticky
+   header keeps working while the hero photo bleeds off the right edge. */
+html,
+body {
+  overflow-x: clip;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -78,19 +60,13 @@ html {
   color-scheme: dark;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color-scheme: light;
-  }
-}
-
-/* Visible focus everywhere — Phase 4 acceptance depends on this (§2.2 A2) */
+/* Visible focus everywhere, in the accent so it reads as part of the palette */
 :focus-visible {
   outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
-/* Global reduced-motion guard (§7.6, fixes A5) */
+/* Global reduced-motion guard */
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,

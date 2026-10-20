@@ -9,13 +9,10 @@ import SkillsPanel from "./components/sections/SkillsPanel";
 const App = () => {
   return (
     <div id="top" className="min-h-screen">
-      {/*
-        Skip link — the first focusable element on the page (§4.2, fixes A2).
-        Visually hidden until focused, then a token-coloured pill top-left.
-      */}
+      {/* Skip link — the first focusable element on the page (§4.2, fixes A2) */}
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:font-semibold focus:text-accent-ink"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-accent focus:px-4 focus:py-2 focus:font-mono focus:text-[11px] focus:tracking-[0.16em] focus:text-bg focus:uppercase"
       >
         Skip to content
       </a>
@@ -25,14 +22,19 @@ const App = () => {
       <main id="main">
         <Hero />
 
-        {/* WorkTabs (Phase 6): the Experience | Projects switcher — the
-            #experience / #projects anchors both resolve inside it. Sits above
-            About so the proof of work is front-loaded for recruiters. */}
+        {/* WorkTabs: the Experience | Projects switcher. The proof of work is
+            front-loaded, then About, then the toolkit. */}
         <WorkTabs />
 
         <About />
 
-        <Section id="skills" lead="What I" rest="work with" className="py-16 md:py-24">
+        <Section
+          id="skills"
+          index="03"
+          label="Toolkit"
+          title="What I work with"
+          className="mt-14 md:mt-20"
+        >
           <SkillsPanel />
         </Section>
       </main>

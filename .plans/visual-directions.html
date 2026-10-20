@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>llia.me — visual directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: #16181a; }
+  body { font-family: Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+
+  .band {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 18px 32px;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6d737a;
+    background: #16181a;
+    border-bottom: 1px solid #23272a;
+    display: flex;
+    justify-content: space-between;
+  }
+  .band b { color: #c9ced3; font-weight: 500; }
+
+  /* ─────────────────────────── CURRENT ─────────────────────────── */
+  .v1 { background: #060908; color: #f6f6f6; position: relative; overflow: hidden; }
+  .v1 .glow { position: absolute; top: -12rem; right: -8rem; height: 36rem; width: 36rem; border-radius: 999px; background: rgba(101,230,149,.1); filter: blur(64px); }
+  .v1 .wrap { position: relative; max-width: 1152px; margin: 0 auto; padding: 96px 32px 64px; }
+  .v1 .grid { display: grid; grid-template-columns: 3fr 2fr; gap: 64px; align-items: center; }
+  .v1 .hi { color: #65e695; font-size: 18px; font-weight: 600; }
+  .v1 h1 { font-size: 96px; line-height: 1.02; font-weight: 700; letter-spacing: -0.025em; margin-top: 12px; }
+  .v1 .role { font-size: 40px; font-weight: 600; line-height: 1.25; margin-top: 12px; }
+  .v1 .lede { margin-top: 20px; font-size: 18px; line-height: 1.6; color: #9eb5aa; max-width: 60ch; }
+  .v1 .lede b { color: #f6f6f6; font-weight: 500; }
+  .v1 .cta { display: flex; gap: 12px; margin-top: 32px; }
+  .v1 .pill { border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 600; border: 1px solid #206241; }
+  .v1 .pill.on { background: #65e695; color: #0d261a; border-color: #65e695; }
+  .v1 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; padding-top: 24px; border-top: 1px solid #206241; }
+  .v1 .stats b { display: block; color: #65e695; font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .v1 .stats span { display: block; margin-top: 4px; font-size: 13px; line-height: 1.35; color: #9eb5aa; }
+  .v1 .shot { position: relative; }
+  .v1 .shot::before { content: ""; position: absolute; inset: 0; transform: scale(.95); border-radius: 16px; background: rgba(101,230,149,.1); filter: blur(32px); }
+  .v1 .shot img { position: relative; width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 16px; box-shadow: 0 0 120px -20px rgba(101,230,149,.28); outline: 1px solid rgba(101,230,149,.4); outline-offset: 0; }
+
+  /* support strip shared shell */
+  .strip { max-width: 1152px; margin: 0 auto; padding: 0 32px 72px; }
+  .rowlabel { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: #5f656b; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.08); }
+
+  .v1 .h2 { font-size: 36px; font-weight: 700; letter-spacing: -.025em; margin-top: 12px; }
+  .v1 .h2 span { color: #65e695; }
+  .v1 .card { border: 1px solid #206241; background: #0c1510; border-radius: 16px; padding: 28px; margin-top: 28px; }
+  .v1 .cardhead { display: flex; gap: 16px; align-items: flex-start; }
+  .v1 .mono { width: 44px; height: 44px; border-radius: 12px; border: 1px solid #206241; background: #13261c; color: #65e695; display: grid; place-items: center; font-size: 18px; font-weight: 700; }
+  .v1 h3 { font-size: 22px; font-weight: 700; letter-spacing: -.02em; }
+  .v1 .sub { margin-top: 2px; font-weight: 600; }
+  .v1 .meta { display: flex; gap: 12px; align-items: center; margin-top: 6px; font-size: 14px; color: #9eb5aa; }
+  .v1 .badge { border-radius: 999px; background: #65e695; color: #0d261a; font-size: 13px; font-weight: 600; padding: 4px 12px; }
+  .v1 ul.bul { list-style: none; margin-top: 20px; display: grid; gap: 12px; font-size: 16px; }
+  .v1 ul.bul li { display: flex; gap: 12px; }
+  .v1 ul.bul li::before { content: ""; width: 6px; height: 6px; border-radius: 999px; background: #65e695; margin-top: 9px; flex: none; }
+  .v1 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .v1 .chip { border-radius: 999px; border: 1px solid #206241; color: #65e695; font-size: 14px; font-weight: 600; padding: 4px 12px; }
+
+  /* ─────────────────────────── A · EDITORIAL ─────────────────────────── */
+  .v2 { background: #0b0c0a; color: #ecebe5; }
+  .v2 .wrap { max-width: 1180px; margin: 0 auto; padding: 0 48px; }
+  .v2 .topline { display: flex; justify-content: space-between; padding: 22px 0; border-bottom: 1px solid #23251f;
+                 font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: #7e8478; }
+  .v2 .topline .dot { color: #65e695; }
+  .v2 .hero { display: grid; grid-template-columns: 1fr 288px; gap: 80px; padding: 68px 0 60px; align-items: start; }
+  .v2 h1 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 116px; line-height: .9; letter-spacing: -.02em; }
+  .v2 h1 em { font-style: italic; color: #9fae8e; }
+  .v2 .roleline { display: flex; align-items: baseline; gap: 14px; margin-top: 26px; padding-top: 18px; border-top: 1px solid #23251f; }
+  .v2 .roleline b { font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: #ecebe5; }
+  .v2 .roleline span { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #848d86; }
+  .v2 .lede { margin-top: 28px; font-size: 17px; line-height: 1.72; color: #a8ada2; max-width: 47ch; font-weight: 400; }
+  .v2 .lede u { text-decoration: none; border-bottom: 1px solid #65e695; color: #ecebe5; }
+  .v2 .shot img { width: 100%; aspect-ratio: 3/4; object-fit: cover; filter: grayscale(1) contrast(1.07) brightness(.94); display: block; }
+  .v2 .caption { display: flex; justify-content: space-between; margin-top: 10px; padding-top: 8px; border-top: 1px solid #23251f;
+                 font-family: "JetBrains Mono", monospace; font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; color: #848d86; }
+
+  .v2 .strip { max-width: 1180px; margin: 0 auto; padding: 0 48px 64px; }
+  .v2 .rowlabel { border-top: 1px solid #23251f; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: #848d86; padding-top: 22px; }
+  .v2 h2 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 44px; letter-spacing: -.01em; margin-top: 10px; }
+  .v2 .item { display: grid; grid-template-columns: 168px 1fr 210px; gap: 40px; padding: 26px 0; border-top: 1px solid #23251f; margin-top: 26px; }
+  .v2 .item .when { font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: #7e8478; }
+  .v2 .item h3 { font-size: 21px; font-weight: 500; letter-spacing: -.012em; }
+  .v2 .item .sub { font-size: 14.5px; color: #8d938a; margin-top: 3px; }
+  .v2 .item ul { list-style: none; margin-top: 14px; display: grid; gap: 7px; font-size: 15px; line-height: 1.55; color: #b6bbb0; }
+  .v2 .item ul li { padding-left: 18px; position: relative; }
+  .v2 .item ul li::before { content: "—"; position: absolute; left: 0; color: #4d5a45; }
+  .v2 .item .stack { font-family: "JetBrains Mono", monospace; font-size: 10.5px; line-height: 2; letter-spacing: .06em; color: #7e8478; text-align: right; }
+  .v2 .clusters { margin-top: 26px; border-top: 1px solid #23251f; }
+  .v2 .clusters div { display: grid; grid-template-columns: 168px 1fr; gap: 40px; padding: 11px 0; border-bottom: 1px solid #1b1d18; }
+  .v2 .clusters dt { font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: #848d86; }
+  .v2 .clusters dd { font-size: 14.5px; color: #c2c7bc; }
+
+  /* ─────────────────────────── B · SPEC SHEET ─────────────────────────── */
+  .v3 { background: #07080a; color: #d9ddd6; }
+  .v3 .wrap { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
+  .v3 .hero { display: grid; grid-template-columns: 1fr 300px; gap: 0; border-bottom: 1px solid #1e2422; }
+  .v3 .left { padding: 56px 56px 56px 0; border-right: 1px solid #1e2422; }
+  .v3 .right { padding: 56px 0 56px 40px; }
+  .v3 .kicker { display: flex; align-items: center; gap: 10px; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: #79817b; }
+  .v3 .kicker .live { width: 6px; height: 6px; background: #65e695; border-radius: 999px; }
+  .v3 h1 { font-size: 78px; line-height: .96; font-weight: 500; letter-spacing: -.04em; margin-top: 28px; }
+  .v3 h1 span { color: #65e695; }
+  .v3 .role { margin-top: 20px; font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: #aeb6ac; }
+  .v3 .lede { margin-top: 26px; font-size: 15.5px; line-height: 1.72; color: #8f978f; max-width: 52ch; }
+  .v3 .lede u { text-decoration: none; color: #d9ddd6; border-bottom: 1px solid #65e695; }
+  .v3 img { width: 100%; aspect-ratio: 3/4; object-fit: cover; filter: grayscale(1) contrast(1.1) brightness(.9); display: block; border: 1px solid #1e2422; }
+  .v3 .caption { margin-top: 8px; font-family: "JetBrains Mono", monospace; font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; color: #8a9184; }
+  .v3 .data { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid #1e2422; }
+  .v3 .data div { padding: 22px 24px 22px 0; border-right: 1px solid #1e2422; }
+  .v3 .data div:last-child { border-right: 0; padding-right: 0; }
+  .v3 .data b { display: block; font-size: 26px; font-weight: 500; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .v3 .data b i { font-style: normal; color: #65e695; }
+  .v3 .data span { display: block; margin-top: 6px; font-family: "JetBrains Mono", monospace; font-size: 9.5px; letter-spacing: .13em; text-transform: uppercase; color: #848d86; line-height: 1.6; }
+
+  .v3 .strip { max-width: 1240px; margin: 0 auto; padding: 0 40px 56px; }
+  .v3 .rowlabel { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: #848d86; padding: 22px 0 18px; }
+  .v3 h2 { font-size: 30px; font-weight: 500; letter-spacing: -.03em; padding-bottom: 20px; }
+  .v3 .item { display: grid; grid-template-columns: 150px 1fr 190px; gap: 32px; padding: 20px 0; border-top: 1px solid #1e2422; }
+  .v3 .item .when { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #848d86; padding-top: 4px; }
+  .v3 .item h3 { font-size: 17px; font-weight: 500; letter-spacing: -.01em; }
+  .v3 .item .sub { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #79817b; margin-top: 5px; }
+  .v3 .item p { margin-top: 10px; font-size: 14.5px; line-height: 1.62; color: #99a099; max-width: 62ch; }
+  .v3 .item .stack { font-family: "JetBrains Mono", monospace; font-size: 10px; line-height: 1.9; letter-spacing: .06em; color: #848d86; border-left: 1px solid #1e2422; padding-left: 16px; }
+  .v3 .clusters { border-top: 1px solid #1e2422; }
+  .v3 .clusters div { display: grid; grid-template-columns: 150px 1fr; gap: 32px; padding: 10px 0; border-bottom: 1px solid #14181a; }
+  .v3 .clusters dt { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #848d86; }
+  .v3 .clusters dd { font-size: 14px; color: #b3bab2; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ CURRENT ══════════════ -->
+<div class="band"><span><b>1 · current</b> — what ships now</span><span>Inter only · 70 pills · accent on 110 elements</span></div>
+<section class="v1">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <p class="hi">Hi, my name is</p>
+        <h1>Lliam Symonds</h1>
+        <p class="role">Software Engineer</p>
+        <p class="lede">Recent UQ computer science graduate <b>(ML major)</b>, now a software engineer at <b>Suncorp</b> building AI systems for insurance claims in production. Based in Brisbane, Australia.</p>
+        <div class="cta">
+          <span class="pill on">Get in touch</span>
+          <span class="pill">GitHub</span>
+          <span class="pill">Resume</span>
+        </div>
+        <div class="stats">
+          <div><b>200</b><span>open home claims a day, every one runs through logic I built</span></div>
+          <div><b>days → ~5 min</b><span>median claim assessment turnaround, in production</span></div>
+          <div><b>6</b><span>shipped products, across fullstack, ML and AI</span></div>
+        </div>
+      </div>
+      <div class="shot"><img src="../public/me/profile.webp" alt="portrait" /></div>
+    </div>
+  </div>
+  <div class="strip">
+    <div class="rowlabel">below the fold</div>
+    <p class="h2"><span>Where I've</span> worked</p>
+    <div class="card">
+      <div class="cardhead">
+        <div class="mono">S</div>
+        <div>
+          <h3>Suncorp</h3>
+          <p class="sub">Software Engineer</p>
+          <div class="meta"><span>2026 – Present</span><span class="badge">Full-time</span><span>Brisbane</span></div>
+        </div>
+      </div>
+      <ul class="bul">
+        <li>Built the assessment pipeline that routes every open housing claim through LLM-generated decisions.</li>
+        <li>Cut median assessment turnaround from multiple days to roughly five minutes.</li>
+      </ul>
+      <div class="chips">
+        <span class="chip">TypeScript</span><span class="chip">UiPath</span><span class="chip">AWS</span><span class="chip">DynamoDB</span><span class="chip">Python</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ A · EDITORIAL ══════════════ -->
+<div class="band"><span><b>A · editorial</b> — serif display, rules instead of cards, photo treated to the palette</span><span>accent on 2 elements</span></div>
+<section class="v2">
+  <div class="wrap">
+    <div class="topline">
+      <span><span class="dot">●</span> Available for work — Brisbane, AU</span>
+      <span>Software engineer / Suncorp</span>
+    </div>
+    <div class="hero">
+      <div>
+        <h1>Lliam<br /><em>Symonds</em></h1>
+        <div class="roleline"><b>Software Engineer</b><span>AI claims automation · Suncorp</span></div>
+        <p class="lede">Recent UQ computer science graduate (ML major), now building the AI systems that assess insurance claims in production. <u>Suncorp</u>, Brisbane.</p>
+      </div>
+      <div>
+        <div class="shot"><img src="../public/me/profile.webp" alt="portrait" /></div>
+        <div class="caption"><span>Brisbane, AU</span><span>2026</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="strip">
+    <div class="rowlabel">01 — Work</div>
+    <h2>Where I've worked</h2>
+    <div class="item">
+      <div class="when">2026<br />Present</div>
+      <div>
+        <h3>Suncorp</h3>
+        <p class="sub">Software Engineer</p>
+        <ul>
+          <li>Every one of the ~200 open housing claims runs through assessment logic I built.</li>
+          <li>Median assessment turnaround: multiple days to roughly five minutes.</li>
+        </ul>
+      </div>
+      <div class="stack">TypeScript<br />UiPath<br />AWS Lambda · DynamoDB<br />Python</div>
+    </div>
+    <dl class="clusters">
+      <div><dt>Languages</dt><dd>Python, TypeScript, C#, Ruby, SQL</dd></div>
+      <div><dt>Frameworks</dt><dd>React, .NET, Rails, Svelte, Next.js, FastAPI, Node</dd></div>
+      <div><dt>AI &amp; ML</dt><dd>PyTorch, LangChain, Semantic Kernel, OpenCV, LLMs</dd></div>
+      <div><dt>Cloud</dt><dd>AWS, Azure, Docker, PostgreSQL, Redis, Linux</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ══════════════ B · SPEC SHEET ══════════════ -->
+<div class="band"><span><b>B · spec sheet</b> — mono metadata, hard rules, zero radii, accent as a signal not decoration</span><span>accent on 4 elements</span></div>
+<section class="v3">
+  <div class="wrap">
+    <div class="hero">
+      <div class="left">
+        <div class="kicker"><span class="live"></span> Open to work · Brisbane, AU</div>
+        <h1>Lliam<br /><span>Symonds</span></h1>
+        <p class="role">Software Engineer — AI claims automation, Suncorp</p>
+        <p class="lede">Recent UQ computer science graduate (ML major), now building the <u>AI systems that assess insurance claims</u> in production.</p>
+      </div>
+      <div class="right">
+        <img src="../public/me/profile.webp" alt="portrait" />
+        <div class="caption">Portrait / 2026</div>
+      </div>
+    </div>
+    <div class="data">
+      <div><b>200</b><span>open home claims a day</span></div>
+      <div><b>days <i>→</i> 5 min</b><span>median assessment turnaround</span></div>
+      <div><b>6</b><span>shipped products</span></div>
+    </div>
+  </div>
+  <div class="strip">
+    <div class="rowlabel">02 / Experience</div>
+    <h2>Where I've worked</h2>
+    <div class="item">
+      <div class="when">2026 —<br />Present</div>
+      <div>
+        <h3>Suncorp</h3>
+        <p class="sub">Software Engineer</p>
+        <p>Every one of the ~200 open housing claims runs through assessment logic I built. Median turnaround: multiple days to roughly five minutes.</p>
+      </div>
+      <div class="stack">TS · UiPath<br />AWS · DynamoDB<br />Python</div>
+    </div>
+    <div class="clusters">
+      <div><dt>Languages</dt><dd>Python · TypeScript · C# · Ruby · SQL</dd></div>
+      <div><dt>Frameworks</dt><dd>React · .NET · Rails · Svelte · Next.js · FastAPI · Node</dd></div>
+      <div><dt>AI &amp; ML</dt><dd>PyTorch · LangChain · Semantic Kernel · OpenCV · LLMs</dd></div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

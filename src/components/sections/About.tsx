@@ -1,47 +1,48 @@
 import { Section } from "../layout/Section";
-import { Reveal } from "../ui/Reveal";
 
 /**
- * About (§4) — the "About/Now" block: 2–3 sentences on what I do now, what
- * I'm building, what I'm into. Sits below the WorkTabs section; joins the
- * header nav in Phase 6 when Experience lands.
+ * About — editorial pass: serif heading, hairline body copy at a readable
+ * measure, no reveal animation.
  */
 export default function About() {
   return (
-    <Section id="about" lead="About" rest="me" className="pb-8">
-      <Reveal>
-        <div className="max-w-[68ch] space-y-4 text-base leading-relaxed text-muted md:text-lg">
+    <Section
+      id="about"
+      index="02"
+      label="About"
+      title="A bit about me"
+      className="mt-14 md:mt-20"
+    >
+      <div className="mt-4 grid max-w-[64ch] gap-3.5 text-[15.5px] leading-[1.75] text-body md:text-[16px]">
         <p>
-          I'm a software engineer at{" "}
+          I work on post-lodgement claims processing at{" "}
           <a
             href="https://www.suncorp.com.au/"
             target="_blank"
             rel="noreferrer"
-            className="text-text underline decoration-border underline-offset-4 transition-colors hover:text-accent"
+            className="border-b border-rule pb-px text-ink transition-colors hover:border-accent hover:text-accent"
           >
             Suncorp
           </a>
-          , where I build the AI systems that assess insurance claims in
-          production. That covers LLM orchestration, agent tooling, and the
-          pipeline that takes a claim from lodged to assessed and allocated in
-          minutes instead of days.
+          : the point where a claim stops being paperwork and becomes an
+          assessor's queue. That covers LLM orchestration, agent tooling, and the
+          pipeline that takes a claim from lodged to assessed and allocated.
         </p>
         <p>
-          Outside work I'm always building something: machine learning
-          projects, fullstack apps, and a growing pile of home-lab
-          infrastructure. Lately my hobby of choice is game development in{" "}
+          Outside work I build machine learning projects, fullstack apps and a
+          growing pile of home-lab infrastructure. Lately the hobby of choice is
+          game development in{" "}
           <a
             href="https://godotengine.org/"
             target="_blank"
             rel="noreferrer"
-            className="text-text underline decoration-border underline-offset-4 transition-colors hover:text-accent"
+            className="border-b border-rule pb-px text-ink transition-colors hover:border-accent hover:text-accent"
           >
             Godot
-          </a>{" "}
-          making small games, mostly for the fun of watching physics misbehave.
+          </a>
+          , mostly for the fun of watching physics misbehave.
         </p>
-        </div>
-      </Reveal>
+      </div>
     </Section>
   );
 }
