@@ -98,7 +98,7 @@ export default function Hero() {
             width={1170}
             height={1560}
             fetchPriority="high"
-            className="aspect-[4/5] w-full object-cover object-[52%_28%] lg:aspect-auto lg:h-full lg:min-h-[520px]"
+            className="aspect-[4/5] w-full object-cover object-[52%_28%] md:aspect-[16/9] lg:aspect-auto lg:h-full lg:min-h-[520px]"
           />
         </div>
       </div>
