@@ -90,15 +90,19 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Photo column: colour, unframed, bleeding to the viewport edge */}
-        <div className="-mr-6 md:-mr-12 lg:mr-[calc(-1*(max(0px,(100vw-1180px)/2)+48px))]">
+        {/* Photo column: colour, unframed, overhanging the measure by a fixed
+            98px. The overhang is deliberately fixed rather than tied to the
+            viewport edge: an edge-tied bleed made the image 1550×2067 on a
+            3440 screen and dragged the hero to 2067px tall. Fixed keeps the
+            photo at 470×597 from 1024px up. */}
+        <div className="relative -mr-6 md:-mr-12 lg:min-h-[520px] xl:-mr-[98px]">
           <img
             src="/me/profile.webp"
             alt="Lliam Symonds holding a monkey on his shoulder"
             width={1170}
             height={1560}
             fetchPriority="high"
-            className="aspect-[4/5] w-full object-cover object-[52%_28%] md:aspect-[16/9] lg:aspect-auto lg:h-full lg:min-h-[520px]"
+            className="aspect-[4/5] w-full object-cover object-[52%_28%] md:aspect-[16/9] lg:absolute lg:inset-0 lg:aspect-auto lg:h-full lg:w-full"
           />
         </div>
       </div>
