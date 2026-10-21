@@ -16,24 +16,16 @@ export default function About() {
       <div className="mt-4 grid max-w-[64ch] gap-3.5 text-[15.5px] leading-[1.75] text-body md:text-[16px]">
         <p>
           The through-line of my free time is making things and taking them
-          apart. At the moment it's a spider-walking game in{" "}
-          <a
-            href="https://godotengine.org/"
-            target="_blank"
-            rel="noreferrer"
-            className="border-b border-rule pb-px text-ink transition-colors hover:border-accent hover:text-accent"
-          >
-            Godot
-          </a>
-          , where the legs are driven by inverse kinematics rather than canned
-          animations, and I record a devlog for every milestone. Before that, a
-          jailbroken Kindle running the reader software I actually wanted, and a
-          home lab that serves everything from films to the lights.
+          apart. I run a home lab that serves everything from films to the
+          lights, and I like the kind of software where you own the whole stack
+          end to end: my own infrastructure, my own data, my own dotfiles,
+          nothing rented from someone else's dashboard. Lately that's meant
+          Linux as a daily driver, local models on my own GPU, and slowly
+          automating every device in the room around me.
         </p>
         <p>
-          Away from the keyboard I'm a long-term index investor, always
-          mid-book, and I listen to enough music that the bottom of this page
-          keeps a live record of it.
+          Away from the keyboard I'm in the gym most mornings, and usually
+          mid-book somewhere in sci-fi or fantasy.
         </p>
       </div>
     </Section>
