@@ -3,6 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "overrides": {
+    "source-map-js": "^1.2.2",
+    "eslint": {
+      "dependencies": {
+        "minimatch": "^10.2.6"
+      }
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -31,6 +39,6 @@
     "globals": "^15.14.0",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
-    "vite": "^6.3.5"
+    "vite": "^6.4.5"
   }
 }
