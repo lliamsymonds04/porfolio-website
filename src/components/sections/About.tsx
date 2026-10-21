@@ -15,17 +15,16 @@ export default function About() {
     >
       <div className="mt-4 grid max-w-[64ch] gap-3.5 text-[15.5px] leading-[1.75] text-body md:text-[16px]">
         <p>
-          The through-line of my free time is making things and taking them
-          apart. I run a home lab that serves everything from films to the
-          lights, and I like the kind of software where you own the whole stack
-          end to end: my own infrastructure, my own data, my own dotfiles,
-          nothing rented from someone else's dashboard. Lately that's meant
-          Linux as a daily driver, local models on my own GPU, and slowly
+          Most of my free time goes into making things and taking them apart.
+          I run a home lab that serves everything from films to the lights, and
+          I like the kind of software where you own the whole stack end to end:
+          my own infrastructure, my own data, my own dotfiles. Lately that's
+          meant Linux as a daily driver, local models on my own GPU, and slowly
           automating every device in the room around me.
         </p>
         <p>
-          Away from the keyboard I'm in the gym most mornings, and usually
-          mid-book somewhere in sci-fi or fantasy.
+          Away from the keyboard I'm in the gym most days, and usually mid-book
+          somewhere in sci-fi or fantasy.
         </p>
       </div>
     </Section>
